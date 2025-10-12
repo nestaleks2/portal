@@ -16,7 +16,7 @@ import './styles/pages.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portal">
       <ScrollToTop />
       <div className="App">
         <Routes>
@@ -25,19 +25,47 @@ function App() {
           <Route path="/register" element={<Register />} />
           
           {/* Main pages with header/footer */}
-          <Route path="/*" element={
+          <Route path="/models" element={
             <>
               <Header />
-              <main>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/models" element={<Models />} />
-                  <Route path="/model/:id" element={<ModelProfile />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/premium" element={<PremiumSubscription />} />
-                  <Route path="/become-creator" element={<BecomeCreator />} />
-                </Routes>
-              </main>
+              <main><Models /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/model/:id" element={
+            <>
+              <Header />
+              <main><ModelProfile /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/dashboard" element={
+            <>
+              <Header />
+              <main><Dashboard /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/premium" element={
+            <>
+              <Header />
+              <main><PremiumSubscription /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/become-creator" element={
+            <>
+              <Header />
+              <main><BecomeCreator /></main>
+              <Footer />
+            </>
+          } />
+          
+          {/* Default route - Home page */}
+          <Route path="*" element={
+            <>
+              <Header />
+              <main><Home /></main>
               <Footer />
             </>
           } />
