@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../img/logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +48,7 @@ const Header = () => {
         <div className="header-top">
           <div className="container">
             <div className="nav-brand">
-              <h1>MODELS</h1>
+              <img src={logo} alt="X-Models" className="logo" />
             </div>
           </div>
         </div>
@@ -98,7 +99,7 @@ const Header = () => {
           <div className="container">
             <div className="nav-content">
               <div className="nav-brand-sticky">
-                <h2>MODELS</h2>
+                <img src={logo} alt="X-Models" className="logo-sticky" />
               </div>
               <div className="nav-menu">
                 <Link to="/" className="nav-link">Home</Link>
