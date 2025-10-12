@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import PremiumSubscription from './pages/PremiumSubscription';
 import BecomeCreator from './pages/BecomeCreator';
 import Support from './pages/Support';
+import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import './styles/App.css';
@@ -65,6 +66,13 @@ function App() {
             <>
               <Header />
               <main><Support /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/about" element={
+            <>
+              <Header />
+              <main><About /></main>
               <Footer />
             </>
           } />
