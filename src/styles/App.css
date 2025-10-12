@@ -1016,6 +1016,260 @@ main {
     margin: 0 auto;
 }
 
+/* Support Page Styles */
+.support-page {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+.support-content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.support-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.section-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.section-tab {
+    padding: 16px 20px;
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    color: #4a4a4a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.section-tab:hover {
+    background: #f5f5f5;
+    border-color: #1a1a1a;
+}
+
+.section-tab.active {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+.support-main {
+    min-height: 600px;
+}
+
+.section-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.topic-section {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 0;
+}
+
+.topic-header {
+    width: 100%;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.topic-header:hover {
+    background: #f5f5f5;
+}
+
+.topic-header.open {
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.topic-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #4a4a4a;
+    transition: transform 0.2s ease;
+}
+
+.topic-header.open .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.questions-list {
+    padding: 0 24px 24px;
+}
+
+.question-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.question-item:last-child {
+    border-bottom: none;
+}
+
+.question-header {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.question-header:hover {
+    color: #1a1a1a;
+}
+
+.question-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2a2a2a;
+    line-height: 1.5;
+}
+
+.question-header .toggle-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.answer-content {
+    padding: 0 0 16px;
+    animation: fadeIn 0.3s ease;
+}
+
+.answer-content p {
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.contact-support {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+}
+
+.contact-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    color: #4a4a4a;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.contact-btn {
+    padding: 16px 32px;
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+    background: #4a4a4a;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .support-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .support-sidebar {
+        position: static;
+    }
+    
+    .section-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .section-tab {
+        flex: 1;
+        min-width: fit-content;
+        text-align: center;
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+    
+    .topic-header {
+        padding: 16px 20px;
+    }
+    
+    .questions-list {
+        padding: 0 20px 20px;
+    }
+    
+    .contact-support {
+        margin-top: 3rem;
+        padding: 2rem 1rem;
+    }
+}
+
 /* Mobile Menu Styles */
 .mobile-menu-toggle {
     display: none;

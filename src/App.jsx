@@ -9,6 +9,7 @@ import ModelProfile from './pages/ModelProfile';
 import Dashboard from './pages/Dashboard';
 import PremiumSubscription from './pages/PremiumSubscription';
 import BecomeCreator from './pages/BecomeCreator';
+import Support from './pages/Support';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import './styles/App.css';
@@ -57,6 +58,13 @@ function App() {
             <>
               <Header />
               <main><BecomeCreator /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/support" element={
+            <>
+              <Header />
+              <main><Support /></main>
               <Footer />
             </>
           } />

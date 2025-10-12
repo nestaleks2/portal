@@ -58,7 +58,7 @@ const Header = () => {
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/models" className="nav-link">Models</Link>
                 <Link to="#" className="nav-link">About</Link>
-                <Link to="#" className="nav-link">Contact</Link>
+                <Link to="/support" className="nav-link">Support</Link>
               </div>
               <div className="nav-actions">
                 <button 
@@ -104,7 +104,7 @@ const Header = () => {
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/models" className="nav-link">Models</Link>
                 <Link to="#" className="nav-link">About</Link>
-                <Link to="#" className="nav-link">Contact</Link>
+                <Link to="/support" className="nav-link">Support</Link>
               </div>
               <div className="nav-actions">
                 <button 
@@ -148,7 +148,7 @@ const Header = () => {
               <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>Home</Link>
               <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>Models</Link>
               <Link to="#" className="mobile-nav-link" onClick={closeMobileMenu}>About</Link>
-              <Link to="#" className="mobile-nav-link" onClick={closeMobileMenu}>Contact</Link>
+              <Link to="/support" className="mobile-nav-link" onClick={closeMobileMenu}>Support</Link>
             </div>
             <div className="mobile-nav-actions">
               <button 
