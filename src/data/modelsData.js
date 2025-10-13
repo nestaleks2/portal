@@ -26,6 +26,11 @@ export const modelsData = [
                 thumbnail: "https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
                 src: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4"
             }
+        ],
+        premiumPhotos: [
+            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1526413232644-8a40f03cc03b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
         ]
     },
     {

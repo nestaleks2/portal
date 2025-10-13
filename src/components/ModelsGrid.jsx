@@ -14,7 +14,6 @@ const ModelsGrid = ({ limitRows = true }) => {
     { id: 'fitness', label: 'Fitness' }
   ];
 
-  // Функция для перемешивания массива
   const shuffleArray = (array) => {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -24,64 +23,60 @@ const ModelsGrid = ({ limitRows = true }) => {
     return shuffled;
   };
 
-  // Мемоизируем перемешанные модели для каждого фильтра
-  const shuffledModels = useMemo(() => {
-    const filtered = currentFilter === 'all' 
-      ? modelsData 
-      : modelsData.filter(model => model.category === currentFilter);
-    return shuffleArray(filtered);
-  }, [currentFilter]);
-
-  const displayModels = limitRows ? shuffledModels.slice(0, 12) : shuffledModels;
-
-  // Умный алгоритм размещения плиток
-  const getOptimalLayout = (models) => {
-    const layout = [];
+  // Assign a predictable layout so tile sizes persist until reload
+  const assignLayoutSizes = (models) => {
+    const withLayout = [];
     let currentRowWidth = 0;
-    const maxRowWidth = 4; // Каждый ряд может вместить 4 обычные плитки
-    
-    models.forEach((model, index) => {
+    const maxRowWidth = 4;
+
+    models.forEach((model) => {
       let size = '';
-      
-      // Логика выбора размера на основе доступного места
+
       if (currentRowWidth === 0) {
-        // Начало нового ряда - можем выбрать любой размер
-        size = Math.random() > 0.3 ? '' : 'wide'; // 70% обычных, 30% широких
+        size = Math.random() > 0.3 ? '' : 'wide';
       } else if (currentRowWidth === 1) {
-        // Есть место для широкой плитки или 3 обычных
-        size = Math.random() > 0.4 ? '' : 'wide'; // 60% обычных, 40% широких
-      } else if (currentRowWidth === 2) {
-        // Есть место только для 2 обычных плиток
-        size = '';
-      } else if (currentRowWidth === 3) {
-        // Есть место только для 1 обычной плитки
-        size = '';
+        size = Math.random() > 0.4 ? '' : 'wide';
       }
-      
-      // Обновляем текущую ширину ряда
-      if (size === 'wide') {
-        currentRowWidth += 2;
-      } else {
-        currentRowWidth += 1;
-      }
-      
-      // Если ряд заполнен, начинаем новый
+
+      currentRowWidth += size === 'wide' ? 2 : 1;
+
       if (currentRowWidth >= maxRowWidth) {
         currentRowWidth = 0;
       }
-      
-      layout.push({
+
+      withLayout.push({
         ...model,
         layoutSize: size
       });
     });
-    
-    return layout;
+
+    return withLayout;
   };
 
-  const modelsWithLayout = useMemo(() => {
-    return getOptimalLayout(displayModels);
-  }, [displayModels]);
+  // Persist shuffle + layout for the session so navigation does not reshuffle
+  const stableModels = useMemo(() => {
+    if (typeof window !== 'undefined' && window.__MODELS_GRID_ORDER__) {
+      return window.__MODELS_GRID_ORDER__;
+    }
+
+    const shuffledWithLayout = assignLayoutSizes(shuffleArray(modelsData));
+
+    if (typeof window !== 'undefined') {
+      window.__MODELS_GRID_ORDER__ = shuffledWithLayout;
+    }
+
+    return shuffledWithLayout;
+  }, []);
+
+  const filteredModels = useMemo(() => {
+    if (currentFilter === 'all') {
+      return stableModels;
+    }
+
+    return stableModels.filter(model => model.category === currentFilter);
+  }, [currentFilter, stableModels]);
+
+  const displayModels = limitRows ? filteredModels.slice(0, 12) : filteredModels;
 
   const handleModelClick = (modelId) => {
     navigate(`/model/${modelId}`);
@@ -104,7 +99,7 @@ const ModelsGrid = ({ limitRows = true }) => {
       </div>
       
       <div className="models-grid">
-        {modelsWithLayout.map((model) => (
+        {displayModels.map((model) => (
           <div
             key={model.id}
             className={`model-tile ${model.layoutSize}`}
@@ -119,7 +114,7 @@ const ModelsGrid = ({ limitRows = true }) => {
         ))}
       </div>
       
-      {limitRows && shuffledModels.length > 12 && (
+      {limitRows && filteredModels.length > 12 && (
         <div className="see-more-section">
           <button 
             className="btn-primary see-more-btn"
