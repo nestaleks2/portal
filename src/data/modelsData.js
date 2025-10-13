@@ -2,6 +2,8 @@ import hero1 from '../img/hero-1.png';
 import hero2 from '../img/hero-2.png';
 import hero3 from '../img/hero-3.png';
 import hero4 from '../img/hero-4.png';
+import premiumBanner from '../img/premium_subscribe.png';
+import creatorBanner from '../img/how_creator.png';
 
 export const modelsData = [
     {
@@ -284,14 +286,14 @@ export const banners = [
         id: 1,
         title: "Premium Subscription",
         description: "Unlock exclusive features and boost your career",
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        image: premiumBanner,
         link: "/premium"
     },
     {
         id: 2,
         title: "How to become a Creator",
         description: "Start your modeling journey with our step-by-step guide",
-        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        image: creatorBanner,
         link: "/become-creator"
     }
 ];

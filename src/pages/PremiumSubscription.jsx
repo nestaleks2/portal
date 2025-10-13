@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import premiumBanner from '../img/premium_subscribe.png';
 
 const PremiumSubscription = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -174,24 +175,24 @@ const PremiumSubscription = () => {
           <h2>Preview Exclusive Content</h2>
           <div className="preview-grid">
             <div className="preview-item">
-              <img src="https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Exclusive content" />
+              <img src={premiumBanner} alt="Premium subscription" />
               <div className="preview-overlay">
                 <span className="lock-icon">🔒</span>
-                <p>Premium photoshoot content</p>
+                <p>Premium subscription content</p>
               </div>
             </div>
             <div className="preview-item">
-              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Behind the scenes" />
+              <img src={premiumBanner} alt="Premium features" />
               <div className="preview-overlay">
                 <span className="lock-icon">🔒</span>
-                <p>Behind the scenes content</p>
+                <p>Exclusive premium features</p>
               </div>
             </div>
             <div className="preview-item">
-              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Exclusive videos" />
+              <img src={premiumBanner} alt="Premium access" />
               <div className="preview-overlay">
                 <span className="lock-icon">🔒</span>
-                <p>Exclusive video content</p>
+                <p>Full premium access</p>
               </div>
             </div>
           </div>
