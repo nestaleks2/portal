@@ -637,6 +637,10 @@ main {
     aspect-ratio: 4/5;
 }
 
+.gallery-item.video-item {
+    aspect-ratio: 16/9;
+}
+
 .gallery-item:hover {
     border-color: var(--color-primary);
     transform: translateY(-2px);
@@ -784,8 +788,10 @@ main {
 
 .lightbox-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: 95vw;
+    height: 95vh;
 }
 
 .lightbox img, .lightbox video {
@@ -796,13 +802,14 @@ main {
 
 .lightbox-close {
     position: absolute;
-    top: -40px;
-    right: 0;
+    top: 20px;
+    right: 20px;
     color: white;
     font-size: 2rem;
     cursor: pointer;
     background: none;
     border: none;
+    z-index: 10001;
 }
 
 .lightbox-nav {
@@ -818,11 +825,11 @@ main {
 }
 
 .lightbox-prev {
-    left: -60px;
+    left: 20px;
 }
 
 .lightbox-next {
-    right: -60px;
+    right: 20px;
 }
 
 .dashboard {

@@ -9,7 +9,7 @@ export const modelsData = [
     {
         id: 1,
         name: "Anna Petrova",
-        country: "Russia",
+        country: "Ukraine",
         age: 25,
         height: "175 cm",
         measurements: "90-60-90",
@@ -25,8 +25,16 @@ export const modelsData = [
         ],
         videos: [
             {
-                thumbnail: "https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-                src: "https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4"
+                thumbnail: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=225&h=400&q=80",
+                src: "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4"
+            },
+            {
+                thumbnail: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=225&h=400&q=80",
+                src: "https://test-videos.co.uk/vids/jellyfish/mp4/h264/1080/Jellyfish_1080_10s_1MB.mp4"
+            },
+            {
+                thumbnail: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=225&h=400&q=80",
+                src: "https://test-videos.co.uk/vids/sintel/mp4/av1/1080/Sintel_1080_10s_1MB.mp4"
             }
         ],
         premiumPhotos: [
