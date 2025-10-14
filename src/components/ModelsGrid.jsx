@@ -1,10 +1,25 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { modelsData } from '../data/modelsData';
 
 const ModelsGrid = ({ limitRows = true }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
+  const [screenSize, setScreenSize] = useState('desktop');
   const navigate = useNavigate();
+
+  // Update screen size on resize
+  useEffect(() => {
+    const updateScreenSize = () => {
+      const width = window.innerWidth;
+      if (width < 900) setScreenSize('mobile');
+      else if (width < 1280) setScreenSize('tablet');
+      else setScreenSize('desktop');
+    };
+
+    updateScreenSize();
+    window.addEventListener('resize', updateScreenSize);
+    return () => window.removeEventListener('resize', updateScreenSize);
+  }, []);
 
   const filters = [
     { id: 'all', label: 'All' },
@@ -23,50 +38,94 @@ const ModelsGrid = ({ limitRows = true }) => {
     return shuffled;
   };
 
-  // Assign a predictable layout so tile sizes persist until reload
-  const assignLayoutSizes = (models) => {
+  // Generate layout pattern based on screen size
+  const generateRowPattern = (currentScreenSize) => {
+    switch (currentScreenSize) {
+      case 'desktop':
+        // 2 wide + 2 regular per row (total 4 slots)
+        return ['wide', '', 'wide', ''];
+      case 'tablet':
+        // 1 wide + 3 regular per row (total 4 slots)
+        return ['wide', '', '', ''];
+      case 'mobile':
+        // 1 wide + 1 regular per row (total 2 slots)
+        return ['wide', ''];
+      default:
+        return ['wide', '', 'wide', ''];
+    }
+  };
+
+  // Assign responsive layout
+  const assignLayoutSizes = (models, isLimited = false, currentScreenSize = 'desktop') => {
     const withLayout = [];
-    let currentRowWidth = 0;
-    const maxRowWidth = 4;
-
-    models.forEach((model) => {
-      let size = '';
-
-      if (currentRowWidth === 0) {
-        size = Math.random() > 0.3 ? '' : 'wide';
-      } else if (currentRowWidth === 1) {
-        size = Math.random() > 0.4 ? '' : 'wide';
+    const rowPattern = generateRowPattern(currentScreenSize);
+    const slotsPerRow = rowPattern.length;
+    
+    // Calculate total models needed
+    let totalModels;
+    if (isLimited) {
+      // Home page
+      if (currentScreenSize === 'mobile') {
+        totalModels = 8; // 4 rows × 2 slots = 8 models
+      } else {
+        totalModels = 8; // 2 rows × 4 slots = 8 models
       }
+    } else {
+      // Models page - use all models
+      totalModels = models.length;
+    }
 
-      currentRowWidth += size === 'wide' ? 2 : 1;
-
-      if (currentRowWidth >= maxRowWidth) {
-        currentRowWidth = 0;
+    // Shuffle pattern within each row to add randomness
+    const shuffleRowPattern = (pattern) => {
+      const shuffled = [...pattern];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
+      return shuffled;
+    };
 
+    // Pre-generate shuffled patterns for each row
+    const rowsNeeded = Math.ceil(totalModels / slotsPerRow);
+    const rowPatterns = [];
+    for (let r = 0; r < rowsNeeded; r++) {
+      rowPatterns.push(shuffleRowPattern(rowPattern));
+    }
+
+    // Assign layout sizes
+    for (let i = 0; i < Math.min(totalModels, models.length); i++) {
+      const rowIndex = Math.floor(i / slotsPerRow);
+      const positionInRow = i % slotsPerRow;
+      
+      // Use the pre-generated pattern for this row
+      const currentRowPattern = rowPatterns[rowIndex] || rowPattern;
+      
       withLayout.push({
-        ...model,
-        layoutSize: size
+        ...models[i],
+        layoutSize: currentRowPattern[positionInRow]
       });
-    });
+    }
 
     return withLayout;
   };
 
   // Persist shuffle + layout for the session so navigation does not reshuffle
   const stableModels = useMemo(() => {
-    if (typeof window !== 'undefined' && window.__MODELS_GRID_ORDER__) {
-      return window.__MODELS_GRID_ORDER__;
+    const pageType = limitRows ? 'home' : 'models';
+    const cacheKey = `__MODELS_GRID_ORDER_${pageType}_${screenSize}__`;
+    
+    if (typeof window !== 'undefined' && window[cacheKey]) {
+      return window[cacheKey];
     }
 
-    const shuffledWithLayout = assignLayoutSizes(shuffleArray(modelsData));
+    const shuffledWithLayout = assignLayoutSizes(shuffleArray(modelsData), limitRows, screenSize);
 
     if (typeof window !== 'undefined') {
-      window.__MODELS_GRID_ORDER__ = shuffledWithLayout;
+      window[cacheKey] = shuffledWithLayout;
     }
 
     return shuffledWithLayout;
-  }, []);
+  }, [screenSize, limitRows]);
 
   const filteredModels = useMemo(() => {
     if (currentFilter === 'all') {
@@ -76,7 +135,7 @@ const ModelsGrid = ({ limitRows = true }) => {
     return stableModels.filter(model => model.category === currentFilter);
   }, [currentFilter, stableModels]);
 
-  const displayModels = limitRows ? filteredModels.slice(0, 12) : filteredModels;
+  const displayModels = limitRows ? filteredModels.slice(0, 8) : filteredModels;
 
   const handleModelClick = (modelId) => {
     navigate(`/model/${modelId}`);
@@ -114,7 +173,7 @@ const ModelsGrid = ({ limitRows = true }) => {
         ))}
       </div>
       
-      {limitRows && filteredModels.length > 12 && (
+      {limitRows && filteredModels.length > 8 && (
         <div className="see-more-section">
           <button 
             className="btn-primary see-more-btn"

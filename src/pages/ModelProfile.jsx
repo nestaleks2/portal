@@ -33,7 +33,53 @@ const ModelProfile = () => {
               <img src={model.avatar} alt={model.name} className="profile-avatar" />
             </div>
             <div className="profile-details">
-              <h1>{model.name}</h1>
+              <h1>{model.stageName || model.name}</h1>
+              {model.stageName && model.stageName !== model.name && (
+                <p className="real-name">({model.name} {model.surname})</p>
+              )}
+              {model.bioEN && (
+                <p className="model-bio">{model.bioEN}</p>
+              )}
+              
+              {/* Social Media Links */}
+              {model.social && (
+                <div className="social-media">
+                  <h3>Follow</h3>
+                  <div className="social-links">
+                    {model.social.instagram && (
+                      <a href={model.social.instagram} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">📷</span> Instagram
+                      </a>
+                    )}
+                    {model.social.x && (
+                      <a href={model.social.x} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">✖️</span> X (Twitter)
+                      </a>
+                    )}
+                    {model.social.youtube && (
+                      <a href={model.social.youtube} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">📺</span> YouTube
+                      </a>
+                    )}
+                    {model.social.onlyfans && (
+                      <a href={model.social.onlyfans} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">🔥</span> OnlyFans
+                      </a>
+                    )}
+                    {model.social.linkme && (
+                      <a href={model.social.linkme} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">🔗</span> LinkMe
+                      </a>
+                    )}
+                    {model.social.website && (
+                      <a href={model.social.website} target="_blank" rel="noopener noreferrer" className="social-link">
+                        <span className="social-icon">🌐</span> Website
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+              
               <div className="profile-meta">
                 <div className="detail-row">
                   <div className="detail-item">

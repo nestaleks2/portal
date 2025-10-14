@@ -86,11 +86,11 @@ const Header = () => {
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <span className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+                <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
                   <span></span>
                   <span></span>
                   <span></span>
-                </span>
+                </div>
               </button>
             </div>
           </div>
@@ -132,19 +132,22 @@ const Header = () => {
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <span className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+                <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
                   <span></span>
                   <span></span>
                   <span></span>
-                </span>
+                </div>
               </button>
             </div>
           </div>
         </nav>
 
         {/* Mobile Menu */}
-        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <div className="mobile-menu-content">
+        <div 
+          className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={closeMobileMenu}
+        >
+          <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-nav-links">
               <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>Home</Link>
               <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>Models</Link>

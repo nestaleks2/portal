@@ -91,6 +91,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .nav-menu {
@@ -334,6 +335,12 @@ main {
     margin: 0 auto;
 }
 
+@media (max-width: 640px) {
+    .banner-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 .banner {
     position: relative;
     overflow: hidden;
@@ -402,9 +409,25 @@ main {
 
 .models-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     grid-auto-rows: 300px;
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1279px) {
+    .models-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 899px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+    }
 }
 
 .model-tile {
@@ -415,6 +438,10 @@ main {
     transition: all 0.2s ease;
     background: var(--bg-secondary);
     border: 1px solid var(--border-secondary);
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
 }
 
 .model-tile:hover {
@@ -573,6 +600,63 @@ main {
     color: var(--text-primary);
     font-size: 1rem;
     font-weight: 400;
+}
+
+/* New profile elements */
+.real-name {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.model-bio {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* Social Media Styles */
+.social-media {
+    margin-bottom: 2rem;
+}
+
+.social-media h3 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    font-size: 1rem;
 }
 
 .profile-tabs {
@@ -1901,11 +1985,15 @@ main {
     cursor: pointer;
     padding: 8px;
     z-index: 1001;
+    width: 40px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .hamburger {
-    display: flex;
-    flex-direction: column;
     width: 24px;
     height: 18px;
     position: relative;
@@ -1913,20 +2001,31 @@ main {
 
 .hamburger span {
     display: block;
+    position: absolute;
     height: 2px;
     width: 100%;
-    background: white;
-    margin-bottom: 4px;
+    background: var(--text-primary);
     transition: all 0.3s ease;
     transform-origin: center;
+    left: 0;
+    z-index: 10;
+}
+
+.hamburger span:first-child {
+    top: 0;
+}
+
+.hamburger span:nth-child(2) {
+    top: 8px;
 }
 
 .hamburger span:last-child {
-    margin-bottom: 0;
+    top: 16px;
 }
 
 .hamburger.active span:first-child {
-    transform: rotate(45deg) translate(5px, 5px);
+    top: 8px;
+    transform: rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -1934,25 +2033,28 @@ main {
 }
 
 .hamburger.active span:last-child {
-    transform: rotate(-45deg) translate(7px, -6px);
+    top: 8px;
+    transform: rotate(-45deg);
 }
 
 .mobile-menu {
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 70px);
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .mobile-menu.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .mobile-menu-content {
@@ -1962,7 +2064,7 @@ main {
     width: 280px;
     height: 100%;
     background: var(--bg-primary);
-    padding: 80px 20px 20px;
+    padding: 20px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
@@ -2148,15 +2250,99 @@ main {
         bottom: 20px;
         gap: 8px;
     }
+}
+
+/* Стили для превью загруженных файлов */
+.preview-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--bg-tertiary);
+}
+
+.preview-section h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.preview-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-primary);
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.preview-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-item::after {
+    content: '✓';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Обновление прогресс бара */
+.upload-progress {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--bg-tertiary);
+}
+
+.progress-bar {
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+    }
     
     .dot {
         width: 10px;
         height: 10px;
     }
     
-    .banner-container {
-        grid-template-columns: 1fr;
-    }
     
     .models-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -2217,6 +2403,7 @@ main {
     }
 }
 
+
 @media (max-width: 480px) {
     .navbar {
         padding: 0 0.5rem;
@@ -2225,6 +2412,7 @@ main {
     .nav-brand h1 {
         font-size: 1.5rem;
     }
+    
     
     .nav-menu {
         flex-wrap: wrap;

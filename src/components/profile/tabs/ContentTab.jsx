@@ -1,32 +1,103 @@
 import React, { useState } from 'react';
+import { 
+  createGalleryPreview, 
+  createVideoGalleryPreview, 
+  validateImageFile, 
+  validateVideoFile 
+} from '../../../utils/imageUtils';
 
 const ContentTab = () => {
   const [uploadProgress, setUploadProgress] = useState({ visible: false, progress: 0 });
   const [filter, setFilter] = useState('all');
+  const [uploadedContent, setUploadedContent] = useState([]);
+  const [previewImages, setPreviewImages] = useState([]);
 
-  const simulateUpload = (files) => {
+  const processFiles = async (files) => {
     setUploadProgress({ visible: true, progress: 0 });
-    
+    setPreviewImages([]);
+
+    const processedFiles = [];
+    const previews = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const isImage = file.type.startsWith('image/');
+      const isVideo = file.type.startsWith('video/');
+
+      try {
+        // Валидация файла
+        if (isImage) {
+          const validation = validateImageFile(file);
+          if (!validation.valid) {
+            alert(`Error with ${file.name}: ${validation.error}`);
+            continue;
+          }
+        } else if (isVideo) {
+          const validation = validateVideoFile(file);
+          if (!validation.valid) {
+            alert(`Error with ${file.name}: ${validation.error}`);
+            continue;
+          }
+        } else {
+          alert(`Unsupported file type: ${file.name}`);
+          continue;
+        }
+
+        // Создание превью
+        let preview = null;
+        if (isImage) {
+          preview = await createGalleryPreview(file);
+        } else if (isVideo) {
+          preview = await createVideoGalleryPreview(file);
+        }
+
+        const newContent = {
+          id: Date.now() + i,
+          file: file,
+          type: isImage ? 'photo' : 'video',
+          title: file.name.split('.')[0],
+          thumbnail: preview,
+          size: file.size,
+          status: 'processing',
+          uploadDate: new Date().toISOString()
+        };
+
+        processedFiles.push(newContent);
+        previews.push(preview);
+
+        // Обновляем прогресс
+        const progress = ((i + 1) / files.length) * 100;
+        setUploadProgress({ visible: true, progress });
+        
+      } catch (error) {
+        console.error(`Error processing ${file.name}:`, error);
+        alert(`Error processing ${file.name}: ${error.message}`);
+      }
+    }
+
+    // Симуляция загрузки
     const interval = setInterval(() => {
       setUploadProgress(prev => {
-        const newProgress = prev.progress + Math.random() * 15;
+        const newProgress = prev.progress + Math.random() * 5;
         if (newProgress >= 100) {
           clearInterval(interval);
           setTimeout(() => {
             setUploadProgress({ visible: false, progress: 0 });
-            alert(`Successfully uploaded ${files.length} file(s)`);
+            setUploadedContent(prevContent => [...prevContent, ...processedFiles]);
+            setPreviewImages(previews);
+            alert(`Successfully processed ${processedFiles.length} file(s)`);
           }, 500);
           return { visible: true, progress: 100 };
         }
         return { visible: true, progress: newProgress };
       });
-    }, 200);
+    }, 100);
   };
 
   const handleFileUpload = (e) => {
-    const files = e.target.files;
+    const files = Array.from(e.target.files);
     if (files.length > 0) {
-      simulateUpload(files);
+      processFiles(files);
     }
   };
 
@@ -77,7 +148,10 @@ const ContentTab = () => {
     }
   ];
 
-  const filteredContent = contentItems.filter(item => {
+  // Объединяем демо контент с загруженным
+  const allContent = [...contentItems, ...uploadedContent];
+  
+  const filteredContent = allContent.filter(item => {
     if (filter === 'all') return true;
     if (filter === 'photos') return item.type === 'photo';
     if (filter === 'videos') return item.type === 'video';
@@ -158,7 +232,20 @@ const ContentTab = () => {
               />
             </div>
             <div className="progress-text">
-              Uploading: {Math.round(uploadProgress.progress)}%
+              Processing files: {Math.round(uploadProgress.progress)}%
+            </div>
+          </div>
+        )}
+
+        {previewImages.length > 0 && (
+          <div className="preview-section">
+            <h4>Generated Previews</h4>
+            <div className="preview-grid">
+              {previewImages.map((preview, index) => (
+                <div key={index} className="preview-item">
+                  <img src={preview} alt={`Preview ${index + 1}`} />
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -182,19 +269,19 @@ const ContentTab = () => {
 
         <div className="content-stats">
           <div className="stat-item">
-            <span className="stat-number">{contentItems.filter(item => item.type === 'photo').length}</span>
+            <span className="stat-number">{allContent.filter(item => item.type === 'photo').length}</span>
             <span className="stat-label">Photos</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{contentItems.filter(item => item.type === 'video').length}</span>
+            <span className="stat-number">{allContent.filter(item => item.type === 'video').length}</span>
             <span className="stat-label">Videos</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{contentItems.filter(item => item.isPremium).length}</span>
+            <span className="stat-number">{allContent.filter(item => item.isPremium).length}</span>
             <span className="stat-label">Premium</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{contentItems.filter(item => item.status === 'draft').length}</span>
+            <span className="stat-number">{allContent.filter(item => item.status === 'draft' || item.status === 'processing').length}</span>
             <span className="stat-label">Drafts</span>
           </div>
         </div>
