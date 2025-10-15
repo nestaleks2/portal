@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <HeroSlider />
       <Banners />
-      <ModelsGrid />
+      <ModelsGrid limitRows={true} />
     </>
   );
 };
