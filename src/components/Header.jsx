@@ -58,8 +58,8 @@ const Header = () => {
               <div className="nav-menu">
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/models" className="nav-link">Models</Link>
-                <Link to="/about" className="nav-link">About</Link>
-                <Link to="/support" className="nav-link">Support</Link>
+                <Link to="/subscriptions" className="nav-link">Subscriptions</Link>
+                <Link to="/messages" className="nav-link">Messages</Link>
               </div>
               <div className="nav-actions">
                 <button 
@@ -104,8 +104,8 @@ const Header = () => {
               <div className="nav-menu">
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/models" className="nav-link">Models</Link>
-                <Link to="/about" className="nav-link">About</Link>
-                <Link to="/support" className="nav-link">Support</Link>
+                <Link to="/subscriptions" className="nav-link">Subscriptions</Link>
+                <Link to="/messages" className="nav-link">Messages</Link>
               </div>
               <div className="nav-actions">
                 <button 
@@ -151,8 +151,8 @@ const Header = () => {
             <div className="mobile-nav-links">
               <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>Home</Link>
               <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>Models</Link>
-              <Link to="/about" className="mobile-nav-link" onClick={closeMobileMenu}>About</Link>
-              <Link to="/support" className="mobile-nav-link" onClick={closeMobileMenu}>Support</Link>
+              <Link to="/subscriptions" className="mobile-nav-link" onClick={closeMobileMenu}>Subscriptions</Link>
+              <Link to="/messages" className="mobile-nav-link" onClick={closeMobileMenu}>Messages</Link>
             </div>
             <div className="mobile-nav-actions">
               <button 

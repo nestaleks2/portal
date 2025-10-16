@@ -13,6 +13,8 @@ import Support from './pages/Support';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Messages from './pages/Messages';
+import Subscriptions from './pages/Subscriptions';
 import './styles/App.css';
 import './styles/pages.css';
 
@@ -73,6 +75,20 @@ function App() {
             <>
               <Header />
               <main><About /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/messages" element={
+            <>
+              <Header />
+              <main><Messages /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/subscriptions" element={
+            <>
+              <Header />
+              <main><Subscriptions /></main>
               <Footer />
             </>
           } />
