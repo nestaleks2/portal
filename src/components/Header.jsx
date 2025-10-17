@@ -76,9 +76,15 @@ const Header = () => {
                 </button>
                 <button 
                   className="btn-dashboard" 
-                  onClick={() => navigate('/dashboard')}
+                  onClick={() => navigate('/dashboard-creator')}
                 >
-                  Dashboard
+                  Creator Dashboard
+                </button>
+                <button 
+                  className="btn-dashboard" 
+                  onClick={() => navigate('/dashboard-viewer')}
+                >
+                  Viewer Dashboard
                 </button>
               </div>
               <button 
@@ -122,9 +128,15 @@ const Header = () => {
                 </button>
                 <button 
                   className="btn-dashboard" 
-                  onClick={() => navigate('/dashboard')}
+                  onClick={() => navigate('/dashboard-creator')}
                 >
-                  Dashboard
+                  Creator Dashboard
+                </button>
+                <button 
+                  className="btn-dashboard" 
+                  onClick={() => navigate('/dashboard-viewer')}
+                >
+                  Viewer Dashboard
                 </button>
               </div>
               <button 
@@ -176,11 +188,20 @@ const Header = () => {
               <button 
                 className="mobile-btn mobile-btn-dashboard" 
                 onClick={() => {
-                  navigate('/dashboard');
+                  navigate('/dashboard-creator');
                   closeMobileMenu();
                 }}
               >
-                Dashboard
+                Creator Dashboard
+              </button>
+              <button 
+                className="mobile-btn mobile-btn-dashboard" 
+                onClick={() => {
+                  navigate('/dashboard-viewer');
+                  closeMobileMenu();
+                }}
+              >
+                Viewer Dashboard
               </button>
             </div>
           </div>

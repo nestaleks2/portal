@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import premiumBanner from '../img/premium_subscribe.png';
 
 const PremiumSubscription = () => {
-  const [selectedPlan, setSelectedPlan] = useState(null);
-  const [billingCycle, setBillingCycle] = useState('monthly'); // monthly or annual
 
   const features = [
     {
@@ -48,116 +46,75 @@ const PremiumSubscription = () => {
     }
   ];
 
-  const getPlans = () => {
-    const monthlyPlans = [
-      {
-        name: 'Essential',
-        price: '$9.99',
-        period: '/month',
-        originalPrice: null,
-        description: 'Perfect for exploring premium content',
-        popular: false,
-        features: ['Basic exclusive content', 'Limited messaging', 'Mobile app access']
-      },
-      {
-        name: 'Pro',
-        price: '$19.99',
-        period: '/month',
-        originalPrice: null,
-        description: 'Most popular choice for active users',
-        popular: true,
-        features: ['All exclusive content', 'Unlimited messaging', 'Behind the scenes', 'Early access', 'Ad-free experience']
-      },
-      {
-        name: 'Premium',
-        price: '$39.99',
-        period: '/month',
-        originalPrice: null,
-        description: 'Complete access with all premium features',
-        popular: false,
-        features: ['Everything in Pro', 'Custom content requests', 'Priority support', 'Exclusive events', 'Creator collaboration opportunities']
-      }
-    ];
-
-    const annualPlans = [
-      {
-        name: 'Essential',
-        price: '$79.99',
-        period: '/year',
-        originalPrice: '$119.88',
-        description: 'Perfect for exploring premium content',
-        popular: false,
-        features: ['Basic exclusive content', 'Limited messaging', 'Mobile app access']
-      },
-      {
-        name: 'Pro',
-        price: '$159.99',
-        period: '/year',
-        originalPrice: '$239.88',
-        description: 'Most popular choice for active users',
-        popular: true,
-        features: ['All exclusive content', 'Unlimited messaging', 'Behind the scenes', 'Early access', 'Ad-free experience']
-      },
-      {
-        name: 'Premium',
-        price: '$319.99',
-        period: '/year',
-        originalPrice: '$479.88',
-        description: 'Complete access with all premium features',
-        popular: false,
-        features: ['Everything in Pro', 'Custom content requests', 'Priority support', 'Exclusive events', 'Creator collaboration opportunities']
-      }
-    ];
-
-    return billingCycle === 'monthly' ? monthlyPlans : annualPlans;
+  const premiumPlan = {
+    name: 'Premium Access',
+    price: '$19.99',
+    period: '/month',
+    description: 'Unlock all premium features and exclusive content',
+    features: [
+      'All exclusive content access',
+      'Unlimited direct messaging',
+      'Behind the scenes content', 
+      'Premium videos and tutorials',
+      'Early access to new content',
+      'Special perks and surprises',
+      'Mobile app access',
+      'Ad-free experience'
+    ]
   };
 
-  const plans = getPlans();
-
-  const handleSubscribe = (plan) => {
-    setSelectedPlan(plan);
-    alert(`Subscribing to ${plan.name} plan (${billingCycle}) - This is a demo`);
-  };
-
-  const getSavings = (originalPrice, currentPrice) => {
-    if (!originalPrice) return null;
-    const original = parseFloat(originalPrice.replace('$', ''));
-    const current = parseFloat(currentPrice.replace('$', ''));
-    return Math.round(((original - current) / original) * 100);
+  const handleSubscribe = () => {
+    alert('Subscribing to Premium Access - This is a demo');
   };
 
   return (
     <div className="premium-page">
-      <div className="premium-hero">
+      <section className="about-hero premium-hero">
         <div className="container">
           <div className="hero-content">
             <h1>Unlock Premium Access</h1>
-            <p>Join thousands of users enjoying exclusive content and premium features</p>
-            <div className="platform-stats">
-              <div className="stat">
-                <span className="stat-number">50K+</span>
-                <span className="stat-label">Active Users</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">1000+</span>
-                <span className="stat-label">Premium Creators</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">10K+</span>
-                <span className="stat-label">Exclusive Posts</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">4.8★</span>
-                <span className="stat-label">User Rating</span>
-              </div>
+            <p className="hero-subtitle">
+              Join thousands of users enjoying exclusive content and premium features
+            </p>
+            <div className="hero-description">
+              <p>
+                Experience the platform like never before with unlimited access to premium creators, 
+                exclusive content, and features designed to enhance your journey.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="premium-features">
+      <section className="about-stats premium-stats">
         <div className="container">
-          <h2>What You'll Get with Premium</h2>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-number">50K+</div>
+              <div className="stat-label">Active Users</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">1000+</div>
+              <div className="stat-label">Premium Creators</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">10K+</div>
+              <div className="stat-label">Exclusive Posts</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">4.8★</div>
+              <div className="stat-label">User Rating</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-features premium-features">
+        <div className="container">
+          <div className="section-header">
+            <h2>What You'll Get with Premium</h2>
+            <p>Unlock exclusive features and content that enhance your experience on our platform.</p>
+          </div>
           <div className="features-grid">
             {features.map((feature, index) => (
               <div key={index} className="feature-card">
@@ -168,11 +125,14 @@ const PremiumSubscription = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="content-preview">
+      <section className="content-preview">
         <div className="container">
-          <h2>Preview Exclusive Content</h2>
+          <div className="section-header">
+            <h2>Preview Exclusive Content</h2>
+            <p>Get a glimpse of the premium content waiting for you inside.</p>
+          </div>
           <div className="preview-grid">
             <div className="preview-item">
               <img src={premiumBanner} alt="Premium subscription" />
@@ -197,68 +157,48 @@ const PremiumSubscription = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="premium-pricing">
+      <section className="premium-pricing">
         <div className="container">
-          <h2>Choose Your Plan</h2>
+          <div className="section-header">
+            <h2>Premium Subscription</h2>
+            <p>One simple plan with everything you need for the ultimate experience.</p>
+          </div>
           
-          <div className="billing-toggle">
-            <div className="toggle-container">
+          <div className="single-plan-container">
+            <div className="pricing-card featured">
+              <div className="popular-badge">Best Value</div>
+              <h3>{premiumPlan.name}</h3>
+              <div className="price">
+                <span className="price-amount">{premiumPlan.price}</span>
+                <span className="price-period">{premiumPlan.period}</span>
+              </div>
+              <p className="plan-description">{premiumPlan.description}</p>
+              <ul className="plan-features">
+                {premiumPlan.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
               <button 
-                className={`toggle-btn ${billingCycle === 'monthly' ? 'active' : ''}`}
-                onClick={() => setBillingCycle('monthly')}
+                className="btn-primary"
+                onClick={handleSubscribe}
               >
-                Monthly
-              </button>
-              <button 
-                className={`toggle-btn ${billingCycle === 'annual' ? 'active' : ''}`}
-                onClick={() => setBillingCycle('annual')}
-              >
-                Annual
-                <span className="save-badge">Save up to 33%</span>
+                Get Premium Access
               </button>
             </div>
           </div>
-
-          <div className="pricing-grid">
-            {plans.map((plan, index) => (
-              <div key={index} className={`pricing-card ${plan.popular ? 'popular' : ''}`}>
-                {plan.popular && <div className="popular-badge">Most Popular</div>}
-                <h3>{plan.name}</h3>
-                <div className="price">
-                  <span className="price-amount">{plan.price}</span>
-                  <span className="price-period">{plan.period}</span>
-                </div>
-                {plan.originalPrice && (
-                  <div className="price-savings">
-                    <span className="original-price">{plan.originalPrice}</span>
-                    <span className="savings">Save {getSavings(plan.originalPrice, plan.price)}%</span>
-                  </div>
-                )}
-                <p className="plan-description">{plan.description}</p>
-                <ul className="plan-features">
-                  {plan.features.map((feature, fIndex) => (
-                    <li key={fIndex}>{feature}</li>
-                  ))}
-                </ul>
-                <button 
-                  className="btn-premium"
-                  onClick={() => handleSubscribe(plan)}
-                >
-                  Get Started
-                </button>
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="premium-testimonials">
+      <section className="premium-testimonials">
         <div className="container">
-          <h2>What Our Users Say</h2>
+          <div className="section-header">
+            <h2>What Our Users Say</h2>
+            <p>Hear from our community about their premium experience.</p>
+          </div>
           <div className="testimonials-grid">
-            <div className="testimonial">
+            <div className="testimonial feature-card">
               <div className="testimonial-content">
                 <p>"The exclusive content and direct access to creators is incredible. This platform has completely changed how I discover and engage with content."</p>
                 <div className="testimonial-author">
@@ -270,7 +210,7 @@ const PremiumSubscription = () => {
                 </div>
               </div>
             </div>
-            <div className="testimonial">
+            <div className="testimonial feature-card">
               <div className="testimonial-content">
                 <p>"Being able to chat directly with creators and access behind-the-scenes content is worth every penny. The platform keeps getting better!"</p>
                 <div className="testimonial-author">
@@ -282,7 +222,7 @@ const PremiumSubscription = () => {
                 </div>
               </div>
             </div>
-            <div className="testimonial">
+            <div className="testimonial feature-card">
               <div className="testimonial-content">
                 <p>"The quality and variety of exclusive content is amazing. I love getting early access to new posts and the ad-free experience."</p>
                 <div className="testimonial-author">
@@ -296,61 +236,73 @@ const PremiumSubscription = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="subscription-benefits">
+      <section className="about-values subscription-benefits">
         <div className="container">
-          <h2>Why Choose Premium?</h2>
-          <div className="benefits-grid">
-            <div className="benefit-item">
+          <div className="section-header">
+            <h2>Why Choose Premium?</h2>
+            <p>Discover the benefits that make our premium membership exceptional.</p>
+          </div>
+          <div className="values-grid benefits-grid">
+            <div className="value-card benefit-item">
               <span className="benefit-icon">💝</span>
               <h3>Unlimited Access</h3>
               <p>Access thousands of premium creators and exclusive content across all categories</p>
             </div>
-            <div className="benefit-item">
+            <div className="value-card benefit-item">
               <span className="benefit-icon">👥</span>
               <h3>Creator Community</h3>
               <p>Connect directly with creators through messaging and participate in exclusive events</p>
             </div>
-            <div className="benefit-item">
+            <div className="value-card benefit-item">
               <span className="benefit-icon">🎯</span>
               <h3>Support Creators</h3>
               <p>Your subscription directly supports content creators and helps them produce better content</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="premium-faq">
+      <section className="premium-faq">
         <div className="container">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-grid">
-            <div className="faq-item">
+          <div className="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about our premium membership.</p>
+          </div>
+          <div className="faq-grid features-grid">
+            <div className="faq-item feature-card">
               <h4>Can I cancel my subscription anytime?</h4>
               <p>Yes, you can cancel your subscription at any time from your account settings. You'll continue to have access until the end of your billing period.</p>
             </div>
-            <div className="faq-item">
+            <div className="faq-item feature-card">
               <h4>What payment methods do you accept?</h4>
               <p>We accept all major credit cards, PayPal, and other secure payment methods. All payments are processed securely.</p>
             </div>
-            <div className="faq-item">
+            <div className="faq-item feature-card">
               <h4>Is there a free trial available?</h4>
               <p>Yes! New users get a 7-day free trial to experience all premium features before committing to a subscription.</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="premium-cta">
+      <section className="about-mission premium-cta">
         <div className="container">
-          <h2>Ready to Go Premium?</h2>
-          <p>Join our exclusive community and unlock unlimited access to premium content</p>
-          <button className="btn-premium-large" onClick={() => handleSubscribe(plans[1])}>
-            Start Your Free Trial
-          </button>
-          <p className="cta-note">7-day free trial • Cancel anytime • Secure payment • Instant access</p>
+          <div className="mission-content">
+            <h2>Ready to Go Premium?</h2>
+            <div className="mission-text">
+              <p>Join our exclusive community and unlock unlimited access to premium content</p>
+            </div>
+            <div className="cta-buttons">
+              <button className="btn-primary" onClick={handleSubscribe}>
+                Start Your Free Trial
+              </button>
+            </div>
+            <p className="cta-note">7-day free trial • Cancel anytime • Secure payment • Instant access</p>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

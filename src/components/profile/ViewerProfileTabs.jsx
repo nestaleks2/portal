@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import OverviewTab from './tabs/OverviewTab';
-import ContentTab from './tabs/ContentTab';
-import SubscriptionsTab from './tabs/SubscriptionsTab';
-import FollowersTab from './tabs/FollowersTab';
+import ViewerOverviewTab from './tabs/ViewerOverviewTab';
+import ViewerSubscriptionsTab from './tabs/ViewerSubscriptionsTab';
+import ViewerFavoritesTab from './tabs/ViewerFavoritesTab';
 import MessagesTab from './tabs/MessagesTab';
 import SettingsTab from './tabs/SettingsTab';
 import SecurityTab from './tabs/SecurityTab';
 import BillingTab from './tabs/BillingTab';
 
-const ProfileTabs = () => {
+const ViewerProfileTabs = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
-    { id: 'overview', label: 'Overview', component: OverviewTab },
-    { id: 'content', label: 'Content', component: ContentTab },
-    { id: 'subscriptions', label: 'Subscriptions', component: SubscriptionsTab },
-    { id: 'followers', label: 'Followers', component: FollowersTab },
+    { id: 'overview', label: 'Overview', component: ViewerOverviewTab },
+    { id: 'subscriptions', label: 'Subscriptions', component: ViewerSubscriptionsTab },
+    { id: 'favorites', label: 'Favorites', component: ViewerFavoritesTab },
     { id: 'messages', label: 'Messages', component: MessagesTab },
     { id: 'settings', label: 'Settings', component: SettingsTab },
     { id: 'security', label: 'Security', component: SecurityTab },
@@ -31,13 +29,13 @@ const ProfileTabs = () => {
         <div className="container">
           <div className="dashboard-profile">
             <div className="profile-avatar">
-              <img src="https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Profile" />
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Profile" />
             </div>
             <div className="profile-info">
-              <h2>Mary Crockfoot</h2>
+              <h2>John Viewer</h2>
               <div className="profile-details">
-                <span className="profile-age">24 years</span>
-                <span className="profile-location">London, Great Britain</span>
+                <span className="profile-age">28 years</span>
+                <span className="profile-location">New York, USA</span>
               </div>
             </div>
           </div>
@@ -69,4 +67,4 @@ const ProfileTabs = () => {
   );
 };
 
-export default ProfileTabs;
+export default ViewerProfileTabs;

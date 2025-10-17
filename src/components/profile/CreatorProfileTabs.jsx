@@ -8,7 +8,7 @@ import SettingsTab from './tabs/SettingsTab';
 import SecurityTab from './tabs/SecurityTab';
 import BillingTab from './tabs/BillingTab';
 
-const ProfileTabs = () => {
+const CreatorProfileTabs = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   const tabs = [
@@ -69,4 +69,4 @@ const ProfileTabs = () => {
   );
 };
 
-export default ProfileTabs;
+export default CreatorProfileTabs;

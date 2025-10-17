@@ -6,7 +6,8 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Models from './pages/Models';
 import ModelProfile from './pages/ModelProfile';
-import Dashboard from './pages/Dashboard';
+import DashboardCreator from './pages/DashboardCreator';
+import DashboardViewer from './pages/DashboardViewer';
 import PremiumSubscription from './pages/PremiumSubscription';
 import BecomeCreator from './pages/BecomeCreator';
 import Support from './pages/Support';
@@ -43,10 +44,17 @@ function App() {
               <Footer />
             </>
           } />
-          <Route path="/dashboard" element={
+          <Route path="/dashboard-creator" element={
             <>
               <Header />
-              <main><Dashboard /></main>
+              <main><DashboardCreator /></main>
+              <Footer />
+            </>
+          } />
+          <Route path="/dashboard-viewer" element={
+            <>
+              <Header />
+              <main><DashboardViewer /></main>
               <Footer />
             </>
           } />
