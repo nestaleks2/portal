@@ -36,12 +36,28 @@ const Header = () => {
   }, []);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    const newState = !isMobileMenuOpen;
+    setIsMobileMenuOpen(newState);
+    
+    // Prevent body scroll when mobile menu is open
+    if (newState) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
+
+  // Clean up body overflow on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <>
@@ -151,55 +167,94 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         <div 
-          className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
+          className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={closeMobileMenu}
-        >
-          <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
-            <div className="mobile-nav-links">
-              <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>Home</Link>
-              <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>Models</Link>
-              <Link to="/subscriptions" className="mobile-nav-link" onClick={closeMobileMenu}>Subscriptions</Link>
-              <Link to="/messages" className="mobile-nav-link" onClick={closeMobileMenu}>Messages</Link>
+        />
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          <div className="mobile-menu-content">
+            <div className="mobile-menu-header">
+              <img src={logo} alt="X-Models" className="mobile-logo" />
+              <button 
+                className="mobile-menu-close"
+                onClick={closeMobileMenu}
+                aria-label="Close mobile menu"
+              >
+                ×
+              </button>
             </div>
-            <div className="mobile-nav-actions">
-              <button 
-                className="mobile-btn mobile-btn-login"
-                onClick={() => {
-                  navigate('/login');
-                  closeMobileMenu();
-                }}
-              >
-                Sign In
-              </button>
-              <button 
-                className="mobile-btn mobile-btn-register"
-                onClick={() => {
-                  navigate('/register');
-                  closeMobileMenu();
-                }}
-              >
-                Sign Up
-              </button>
-              <button 
-                className="mobile-btn mobile-btn-dashboard" 
-                onClick={() => {
-                  navigate('/dashboard-creator');
-                  closeMobileMenu();
-                }}
-              >
-                Creator Dashboard
-              </button>
-              <button 
-                className="mobile-btn mobile-btn-dashboard" 
-                onClick={() => {
-                  navigate('/dashboard-viewer');
-                  closeMobileMenu();
-                }}
-              >
-                Viewer Dashboard
-              </button>
+            
+            <div className="mobile-nav-section">
+              <h3 className="mobile-nav-title">Navigation</h3>
+              <nav className="mobile-nav-links">
+                <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="mobile-nav-icon">🏠</span>
+                  Home
+                </Link>
+                <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="mobile-nav-icon">👥</span>
+                  Models
+                </Link>
+                <Link to="/subscriptions" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="mobile-nav-icon">⭐</span>
+                  Subscriptions
+                </Link>
+                <Link to="/messages" className="mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="mobile-nav-icon">💬</span>
+                  Messages
+                </Link>
+              </nav>
+            </div>
+
+            <div className="mobile-auth-section">
+              <h3 className="mobile-nav-title">Account</h3>
+              <div className="mobile-nav-actions">
+                <button 
+                  className="mobile-btn mobile-btn-login"
+                  onClick={() => {
+                    navigate('/login');
+                    closeMobileMenu();
+                  }}
+                >
+                  Sign In
+                </button>
+                <button 
+                  className="mobile-btn mobile-btn-register"
+                  onClick={() => {
+                    navigate('/register');
+                    closeMobileMenu();
+                  }}
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+
+            <div className="mobile-dashboard-section">
+              <h3 className="mobile-nav-title">Dashboard</h3>
+              <div className="mobile-nav-actions">
+                <button 
+                  className="mobile-btn mobile-btn-dashboard creator" 
+                  onClick={() => {
+                    navigate('/dashboard-creator');
+                    closeMobileMenu();
+                  }}
+                >
+                  Creator Dashboard
+                </button>
+                <button 
+                  className="mobile-btn mobile-btn-dashboard viewer" 
+                  onClick={() => {
+                    navigate('/dashboard-viewer');
+                    closeMobileMenu();
+                  }}
+                >
+                  Viewer Dashboard
+                </button>
+              </div>
             </div>
           </div>
         </div>
