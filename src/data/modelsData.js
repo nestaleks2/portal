@@ -46,7 +46,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/u527214172', 
-            linkme: 'https://link.me/meiskyzhang' 
+            fanvue: 'https://www.fanvue.com/meiskyzhang',
+            linkme: 'https://link.me/meiskyzhang',
+            tiktok: 'https://www.tiktok.com/@meiskyzhang',
+            telegram: '' 
         },
         bioEN: `Born in Shanghai, Mei Lotus grew up near the coast, where she fell in love with surfing. Her minimalist fashion sense reflects her calm personality and Zen-inspired lifestyle. She often practices yoga at sunrise, believing it balances her energy for modeling and life. Her freckles, considered unusual in Chinese beauty standards, became her signature charm, symbolizing her individuality.`,
         bioRU: `Родившаяся в Шанхае, Мэй Лотус выросла у моря, где влюбилась в серфинг. Её минималистичный стиль отражает спокойствие и дзен-философию жизни. На рассвете она часто практикует йогу, веря, что это наполняет её энергией для подиума и жизни. Веснушки, редкие для китайских стандартов красоты, стали её визитной карточкой и символом уникальности.`,
@@ -113,7 +116,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/hanabloomkim', 
-            linkme: 'https://link.me/hanabloomkim' 
+            fanvue: '',
+            linkme: 'https://link.me/hanabloomkim',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Coming from Seoul, Hana Bloom embodies the modern Korean wave. Her passion for K-pop dancing and street fashion quickly drew attention in the modeling industry. Always with a camera in hand, she documents her travels and performances, sharing her world with fans. Her delicate wrist tattoo represents "Bloom," a constant reminder to grow and shine.`,
         bioRU: `Родом из Сеула, Хана Блум олицетворяет современную корейскую волну. Её любовь к K-pop танцам и уличной моде быстро привлекла внимание модельного мира. Всегда с камерой в руках, она запечатлевает свои путешествия и выступления, делясь ими с поклонниками. Тонкая татуировка на запястье с надписью "Bloom" напоминает ей всегда расти и сиять.`,
@@ -177,7 +183,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/isabellaspicesantos', 
-            linkme: 'https://link.me/isabellaspicesantos' 
+            fanvue: '',
+            linkme: 'https://link.me/isabellaspicesantos',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Bella Spice was born in Rio de Janeiro, surrounded by samba rhythms and carnival colors. Her piercing and bohemian outfits reflect her fearless spirit. She travels extensively, seeking new cultures to inspire her exotic style. On stage, her samba dance performances combine strength and grace, making her a symbol of Brazilian vibrancy.`,
         bioRU: `Белла Спайс родилась в Рио-де-Жанейро среди ритмов самбы и красок карнавала. Её пирсинг и бохо-образы отражают дерзкий дух. Она много путешествует, черпая вдохновение для экзотического стиля. На сцене её танцы самбы соединяют силу и изящество, превращая её в символ бразильской яркости.`,
@@ -241,7 +250,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/emberniajackson', 
-            linkme: 'https://link.me/niaemberjackson' 
+            fanvue: '',
+            linkme: 'https://link.me/niaemberjackson',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Kingston, Nia Ember grew up with music and skateboards on the streets of Jamaica. Her streetwear style represents freedom and rebellion. The mole on her cheek, once a childhood insecurity, is now her beauty mark in campaigns worldwide. Her nickname "Ember" reflects her fiery energy that ignites passion wherever she goes.`,
         bioRU: `Из Кингстона, Ниа Эмбер выросла среди музыки и скейтбордов на улицах Ямайки. Её стиль стритвира олицетворяет свободу и бунт. Родинка на щеке, некогда её комплекс, теперь стала визитной чертой в мировых кампаниях. Её сценическое имя "Ember" символизирует огненную энергию, зажигающую сердца вокруг.`,
@@ -305,7 +317,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/emilydawndavis', 
-            linkme: 'https://link.me/emilydawndavis' 
+            fanvue: '',
+            linkme: 'https://link.me/emilydawndavis',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Boston, Emily Dawn grew up riding horses on her family's farm. With a love for literature, she often blends classic elegance into her modeling work. Her freckles give her a natural charm, making her stand out in haute couture shows. She believes each dawn is a new beginning, hence her stage name.`,
         bioRU: `Родом из Бостона, Эмили Доун выросла среди лошадей на ферме своей семьи. Её любовь к литературе отражается в классической элегантности образов. Веснушки придают естественное очарование, выделяя её даже на подиумах высокой моды. Она верит, что каждый рассвет — это новое начало, что и дало ей сценическое имя.`,
@@ -369,7 +384,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Sofia Ray, with roots in Miami and Latin heritage, combines glamour with passion. Known for her glamorous red-carpet looks, she also loves to cook traditional Latin dishes for friends. Her long eyelashes became her signature feature, often emphasized in beauty campaigns. Dance and elegance define her artistic journey.`,
         bioRU: `София Рей, родившаяся в Майами с латиноамериканскими корнями, сочетает гламур и страсть. Известная своими эффектными нарядами на красной дорожке, она любит готовить традиционные латиноамериканские блюда для друзей. Длинные ресницы стали её фирменной чертой, часто подчёркиваемой в бьюти-кампаниях. Танец и элегантность определяют её творческий путь.`,
@@ -433,7 +451,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/claraalpinebecker', 
-            linkme: 'https://link.me/claraalpinebecker' 
+            fanvue: '',
+            linkme: 'https://link.me/claraalpinebecker',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Munich, Clara Mist represents the harmony of Scandinavian minimalism and German precision. Passionate about cycling through the Alps, she also designs modern interiors in her free time. Her high cheekbones and serene aura make her a muse for minimalist fashion brands. She believes in beauty through simplicity.`,
         bioRU: `Родом из Мюнхена, Клара Мист сочетает скандинавский минимализм и немецкую точность. Она увлекается велопоездками по Альпам и создаёт современные интерьеры в свободное время. Высокие скулы и спокойное излучение сделали её музой для брендов минимализма. Она верит в красоту через простоту.`,
@@ -497,7 +518,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/oliviashinerossi', 
-            linkme: 'https://link.me/oliviashinerossi' 
+            fanvue: '',
+            linkme: 'https://link.me/oliviashinerossi',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Olivia Shine was born in Florence, the cradle of Renaissance art. She studied painting before turning to fashion, carrying elegance from canvas to runway. Her tattoo on the shoulder symbolizes strength and independence. Known for her refined style, she is often the face of Italian haute couture.`,
         bioRU: `Оливия Шайн родилась во Флоренции, колыбели искусства Ренессанса. Она изучала живопись, прежде чем прийти в моду, перенося элегантность с холста на подиум. Татуировка на плече символизирует силу и независимость. Её изысканный стиль сделал её лицом итальянской высокой моды.`,
@@ -561,7 +585,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/evalunamelnyk', 
-            linkme: 'https://link.me/evalunamelnyk' 
+            fanvue: '',
+            linkme: 'https://link.me/evalunamelnyk',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Eva Star grew up in Kyiv, surrounded by Ukrainian traditions. She loves embroidery, which she sees as a way of connecting with her ancestors. Ballroom dancing taught her grace and confidence, making her shine in romantic fashion. Her dimples and soft aura gave her the nickname "Star" - a light in every room.`,
         bioRU: `Ева Стар выросла в Киеве среди украинских традиций. Она любит вышивку, считая её связью с предками. Бальные танцы подарили ей грацию и уверенность, благодаря чему она сияет в романтических образах. Ямочки на щеках и нежная аура дали ей прозвище "Звезда" — свет в каждом помещении.`,
@@ -625,7 +652,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/lilybijoulefevre', 
-            linkme: 'https://link.me/lilybijoulefevre' 
+            fanvue: '',
+            linkme: 'https://link.me/lilybijoulefevre',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Paris, Lily Rose embodies Parisian chic. A ballet dancer in her youth, she carries grace in every step on the runway. Her fascination with perfumery led her to create her own fragrance line. The beauty mark above her lip became her timeless signature, reminiscent of classic French icons.`,
         bioRU: `Из Парижа, Лили Роуз олицетворяет парижский шик. В юности она занималась балетом, и её грация чувствуется в каждом движении на подиуме. Увлечение парфюмерией вдохновило её создать собственную линию ароматов. Родинка над губой стала её фирменной чертой, напоминающей об иконах французской классики.`,
@@ -689,7 +719,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Beijing, Ling Blossom discovered her passion for blending ancient Chinese traditions with modern fashion. She practices calligraphy daily, finding peace in the strokes that inspire her runway presence. Her small nose piercing adds a rebellious touch to her elegant looks. "Blossom" represents her growth from a small-town girl to an international model.`,
         bioRU: `Родившаяся в Пекине, Линг Блоссом открыла страсть к смешению древних китайских традиций с современной модой. Она ежедневно практикует каллиграфию, находя в штрихах умиротворение для подиума. Маленький пирсинг в носу добавляет бунтарства её элегантным образам. "Блоссом" символизирует её рост от провинциальной девушки до международной модели.`,
@@ -753,7 +786,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Tokyo, Aiko Sakura immerses herself in the vibrant Harajuku scene, where she draws anime characters that influence her unique style. Her cherry blossom tattoo honors Japanese heritage and seasonal beauty. She enjoys tasting rare teas, believing they enhance her creative energy. "Sakura" captures her delicate yet blooming presence in the fashion world.`,
         bioRU: `Из Токио, Айко Сакура погружается в яркую сцену Харадзюку, где рисует персонажей аниме, влияющих на её уникальный стиль. Татуировка сакуры чтит японское наследие и сезонную красоту. Она любит дегустировать редкие чаи, веря, что они усиливают творческую энергию. "Сакура" отражает её нежное, но расцветающее присутствие в мире моды.`,
@@ -817,7 +853,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/ashleyblazethompson', 
-            linkme: 'https://link.me/ashleyblazethompson' 
+            fanvue: '',
+            linkme: 'https://link.me/ashleyblazethompson',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Raised in New York, Ashley Blaze channels her rockstar dreams into bold fashion statements. She plays guitar in her downtime, composing songs inspired by city lights. Her nose ring adds an edgy flair to her athletic build. "Blaze" embodies her fiery personality that lights up every photoshoot and runway.`,
         bioRU: `Выросшая в Нью-Йорке, Эшли Блейз воплощает мечты о рок-звезде в смелых модных образах. В свободное время она играет на гитаре, сочиняя песни под вдохновением городских огней. Кольцо в носу добавляет эджевости её атлетической фигуре. "Блейз" отражает её огненный характер, зажигающий каждую фотосессию и подиум.`,
@@ -881,7 +920,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `With Los Angeles roots and Latina heritage, Gabi Fire brings heat to every appearance. She dances salsa passionately, incorporating the rhythms into her dynamic poses. Baking family recipes connects her to her culture. Her chin dimple and fiery energy make her a standout in vibrant campaigns.`,
         bioRU: `С корнями в Лос-Анджелесе и латиноамериканским наследием, Габи Файр приносит жар в каждое появление. Она страстно танцует сальсу, включая ритмы в динамичные позы. Выпечка семейных рецептов связывает её с культурой. Ямочка на подбородке и огненная энергия делают её выдающейся в ярких кампаниях.`,
@@ -945,7 +987,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Chicago, Taylor Spark captures urban life through her lens, blending photography with modeling. She explores coffee shops worldwide, seeking inspiration in every cup. Her cheek freckles add a playful touch to her sleek looks. "Spark" symbolizes the creative fire that drives her career forward.`,
         bioRU: `Из Чикаго, Тейлор Спарк запечатлевает городскую жизнь через объектив, смешивая фотографию с модельным делом. Она исследует кофейни по миру, черпая вдохновение в каждой чашке. Веснушки на щеках добавляют игривости её sleek-образам. "Спарк" символизирует творческий огонь, продвигающий её карьеру.`,
@@ -1001,7 +1046,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Sydney, Mia Wave lives for the ocean, surfing waves that shape her athletic form and carefree style. Beach volleyball tournaments fuel her competitive spirit. Her sun-kissed freckles tell stories of endless summers. "Wave" reflects her fluid grace and the Australian beach vibe she brings to fashion.`,
         bioRU: `Родившаяся в Сиднее, Миа Вейв живёт океаном, покоряя волны, формирующие её атлетическую фигуру и беззаботный стиль. Турниры по пляжному волейболу питают её соревновательный дух. Веснушки от солнца рассказывают о бесконечных летах. "Вейв" отражает её плавную грацию и австралийский пляжный вайб в моде.`,
@@ -1057,7 +1105,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Mexico City, Rosa Flame celebrates her heritage through vibrant colors and bold patterns. She plays mariachi tunes on guitar, infusing energy into her performances. Cooking spicy dishes connects her to family traditions. Her curvaceous figure and flame-like passion make her a fiery icon in the modeling scene.`,
         bioRU: `Из Мехико, Роза Флейм празднует наследие через яркие цвета и смелые узоры. Она играет мелодии мариачи на гитаре, вливая энергию в выступления. Приготовление острых блюд связывает её с семейными традициями. Её пышная фигура и пламенная страсть делают её огненной иконой в модельном мире.`,
@@ -1113,7 +1164,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/laylamiragemalek', 
-            linkme: 'https://link.me/laylamiragemalek' 
+            fanvue: '',
+            linkme: 'https://link.me/laylamiragemalek',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Beirut, Layla Mirage blends Arab mystique with contemporary fashion. She masters belly dancing, using its fluidity in her poses. Henna art adorns her during festivals, inspiring intricate designs. Her kohl-lined eyes create a mesmerizing gaze, making "Mirage" a fitting name for her enchanting allure.`,
         bioRU: `Родившаяся в Бейруте, Лейла Мираж смешивает арабскую мистику с современной модой. Она мастерски танцует танец живота, используя его плавность в позах. Искусство хны украшает её на фестивалях, вдохновляя на сложные дизайны. Подведённые глаза создают завораживающий взгляд, делая "Мираж" подходящим именем для её чарующего обаяния.`,
@@ -1169,7 +1223,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From London, Charlie Glow draws from British heritage, creating vintage looks with a modern twist. She blends unique teas, finding calm in the ritual. Gardening in her countryside home inspires natural elegance. Her eyebrow scar from a childhood adventure adds character, glowing in her poised presence.`,
         bioRU: `Из Лондона, Чарли Глоу черпает из британского наследия, создавая винтажные образы с современным поворотом. Она смешивает уникальные чаи, находя спокойствие в ритуале. Садоводство в загородном доме вдохновляет на естественную элегантность. Шрам на брови от детского приключения добавляет характера, сияя в её уверенной манере.`,
@@ -1225,7 +1282,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Raised in Reykjavik, Freya Ice embodies the stark beauty of Icelandic landscapes. She relaxes in hot springs, drawing strength from nature's contrasts. Knitting traditional patterns connects her to folklore. Her pale skin and icy demeanor make her a cool muse for Nordic brands.`,
         bioRU: `Выросшая в Рейкьявике, Фрейя Айс олицетворяет суровую красоту исландских пейзажей. Она расслабляется в горячих источниках, черпая силу из контрастов природы. Вязание традиционных узоров связывает её с фольклором. Бледная кожа и ледяная манера делают её прохладной музой для нордических брендов.`,
@@ -1281,7 +1341,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Prague, Anna Crystal is inspired by Czech artistry, practicing glass blowing to create delicate pieces. Folk dancing keeps her connected to cultural roots. Her speckled green eyes sparkle like crystals, enhancing her bohemian allure. "Crystal" represents her clear vision and transparent beauty in fashion.`,
         bioRU: `Из Праги, Анна Кристал вдохновлена чешским искусством, практикуя стеклодувное дело для создания хрупких изделий. Народные танцы сохраняют связь с культурными корнями. Её зелёные глаза с крапинками блестят как кристаллы, усиливая богемное обаяние. "Кристал" символизирует ясное видение и прозрачную красоту в моде.`,
@@ -1337,7 +1400,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Madrid, Lucia Sun radiates Spanish warmth through flamenco rhythms that define her graceful movements. She tastes olive oils from family groves, embracing Mediterranean heritage. Her olive branch tattoo symbolizes peace and strength. "Sun" captures her sunny disposition lighting up every show.`,
         bioRU: `Родившаяся в Мадриде, Лучия Сан излучает испанское тепло через ритмы фламенко, определяющие грациозные движения. Она дегустирует оливковые масла из семейных рощ, обнимая средиземноморское наследие. Татуировка оливковой ветви символизирует мир и силу. "Сан" отражает солнечный нрав, освещающий каждое шоу.`,
@@ -1393,7 +1459,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: '', 
-            linkme: '' 
+            fanvue: '',
+            linkme: '',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `From Helsinki, Sofia Aurora finds serenity in Finnish saunas and forest berry picking, which ground her minimalist aesthetic. Her light blue eyes reflect the northern lights she chases. "Aurora" embodies the ethereal glow she brings to clean, Scandinavian designs in modeling.`,
         bioRU: `Из Хельсинки, София Аврора находит спокойствие в финских саунах и сборе лесных ягод, заземляющих её минималистичный эстетику. Светло-голубые глаза отражают северное сияние, за которым она охотится. "Аврора" олицетворяет эфирное сияние, которое она приносит в чистые скандинавские дизайны в модельном деле.`,
@@ -1449,7 +1518,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/athenamarblearis', 
-            linkme: 'https://link.me/athenamarblearis' 
+            fanvue: '',
+            linkme: 'https://link.me/athenamarblearis',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Raised in Athens, Athena Olive draws from Greek myths, reading ancient tales that inspire her powerful poses. Harvesting olives on family farms connects her to the land. Her strong jawline evokes classical statues. "Olive" honors her roots, blending timeless grace with modern fashion.`,
         bioRU: `Выросшая в Афинах, Афина Олив черпает из греческих мифов, читая древние сказания, вдохновляющие на мощные позы. Сбор оливок на семейных фермах связывает её с землёй. Сильная линия челюсти вызывает классические статуи. "Олив" чтит корни, смешивая вечную грацию с современной модой.`,
@@ -1504,7 +1576,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/ethanstormcarter', 
-            linkme: 'https://link.me/ethanstormcarter' 
+            fanvue: '',
+            linkme: 'https://link.me/ethanstormcarter',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Los Angeles, Ethan Storm grew up on the beaches of California, where he discovered his passion for skateboarding and street photography. His athletic build and natural charisma caught the attention of scouts at a local skate competition. Known for his effortless cool and authentic urban style, Ethan brings raw energy to every photoshoot. His stage name "Storm" reflects the intensity and dynamic presence he commands on camera. When he's not modeling, he captures cityscapes through his lens, finding beauty in the grittiness of urban life.`,
         bioRU: `Родом из Лос-Анджелеса, Итан Сторм вырос на пляжах Калифорнии, где открыл страсть к скейтбордингу и уличной фотографии. Его атлетическое телосложение и природная харизма привлекли внимание скаутов на местных соревнованиях по скейтбордингу. Известный своим непринуждённым стилем и аутентичным урбан-образом, Итан привносит живую энергию в каждую фотосессию. Его сценическое имя "Сторм" отражает интенсивность и динамичное присутствие перед камерой. Когда он не на съёмках, запечатлевает городские пейзажи через объектив, находя красоту в урбанистической эстетике.`,
@@ -1559,7 +1634,10 @@ export const modelsData = [
             dropbox: '', 
             website: '', 
             onlyfans: 'https://onlyfans.com/marcovittoriorossi', 
-            linkme: 'https://link.me/marcovittoriorossi' 
+            fanvue: '',
+            linkme: 'https://link.me/marcovittoriorossi',
+            tiktok: '',
+            telegram: '' 
         },
         bioEN: `Born in Milan, Marco Vittorio embodies the timeless elegance of Italian masculinity. Raised in a family of tailors, he developed an impeccable sense of style and appreciation for craftsmanship from an early age. His striking features and sophisticated demeanor made him a natural fit for high-fashion runways. Marco is often seen riding his vintage Ducati through the streets of Milan, combining his love for Italian engineering with his passion for aesthetics. His stage name "Vittorio" honors his grandfather, a renowned master tailor who taught him that true style is eternal.`,
         bioRU: `Родившийся в Милане, Марко Витторио воплощает вневременную элегантность итальянской мужественности. Выросший в семье портных, он с раннего возраста развил безупречное чувство стиля и понимание мастерства. Его выразительные черты и утончённые манеры сделали его идеальным для подиумов высокой моды. Марко часто можно увидеть на винтажном Ducati на улицах Милана, сочетая любовь к итальянскому инженерному искусству со страстью к эстетике. Его сценическое имя "Витторио" чтит память деда, известного мастера-портного, который научил его, что истинный стиль вечен.`,

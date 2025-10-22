@@ -9,6 +9,10 @@ import youtubeIcon from '../img/icons/youtube.svg';
 import onlyfansIcon from '../img/icons/onlyfans.svg';
 import linkmeIcon from '../img/icons/linkme.png';
 import websiteIcon from '../img/icons/website.svg';
+import fanvueIcon from '../img/icons/fanvue.png';
+import facebookIcon from '../img/icons/facebook.svg';
+import tiktokIcon from '../img/icons/tiktok.svg';
+import telegramIcon from '../img/icons/telegram.svg';
 import photoIcon from '../img/icons/photo.svg';
 import videoIcon from '../img/icons/video.svg';
 import premiumIcon from '../img/icons/premium.svg';
@@ -121,6 +125,30 @@ const ModelProfile = () => {
                     <a href={model.social.website} target="_blank" rel="noopener noreferrer" className="social-link website">
                       <img src={websiteIcon} alt="Website" className="social-icon" />
                       Website
+                    </a>
+                  )}
+                  {model.social.fanvue && (
+                    <a href={model.social.fanvue} target="_blank" rel="noopener noreferrer" className="social-link fanvue">
+                      <img src={fanvueIcon} alt="FanVue" className="social-icon" />
+                      FanVue
+                    </a>
+                  )}
+                  {model.social.facebook && (
+                    <a href={model.social.facebook} target="_blank" rel="noopener noreferrer" className="social-link facebook">
+                      <img src={facebookIcon} alt="Facebook" className="social-icon" />
+                      Facebook
+                    </a>
+                  )}
+                  {model.social.tiktok && (
+                    <a href={model.social.tiktok} target="_blank" rel="noopener noreferrer" className="social-link tiktok">
+                      <img src={tiktokIcon} alt="TikTok" className="social-icon" />
+                      TikTok
+                    </a>
+                  )}
+                  {model.social.telegram && (
+                    <a href={model.social.telegram} target="_blank" rel="noopener noreferrer" className="social-link telegram">
+                      <img src={telegramIcon} alt="Telegram" className="social-icon" />
+                      Telegram
                     </a>
                   )}
                 </div>
