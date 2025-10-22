@@ -1,5 +1,6 @@
 import React from 'react';
 import premiumBanner from '../img/premium_subscribe.png';
+import '../styles/pages/Premium.css';
 
 const PremiumSubscription = () => {
 
