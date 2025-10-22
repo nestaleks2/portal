@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { modelsData } from '../data/modelsData';
 import ModelsFilter from './ModelsFilter';
+import '../styles/components/ModelsGrid.css';
 
 const ModelsGrid = ({ limitRows = true }) => {
   const [filteredModels, setFilteredModels] = useState(modelsData);
@@ -142,7 +143,7 @@ const ModelsGrid = ({ limitRows = true }) => {
       {limitRows && modelsData.length > calculateModelsForCompleteRows(screenSize) && (
         <div className="see-more-section">
           <button 
-            className="btn-primary see-more-btn"
+            className="see-more-btn"
             onClick={() => navigate('/models')}
           >
             See More

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/components/Lightbox.css';
 
 const Lightbox = ({ items, isOpen, currentIndex, onClose, type = 'image' }) => {
   const [index, setIndex] = useState(currentIndex);

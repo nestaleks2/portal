@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { modelsData } from '../data/modelsData';
+import '../styles/pages/Messages.css';
 
 const Messages = () => {
   const [selectedChat, setSelectedChat] = useState(null);
@@ -12,6 +13,7 @@ const Messages = () => {
   const messagesEndRef = useRef(null);
   const fileInputRef = useRef(null);
   const imageInputRef = useRef(null);
+  const messageInputRef = useRef(null);
   
   // Mock chat data
   const [chats] = useState([
@@ -112,17 +114,27 @@ const Messages = () => {
   }, []);
 
   useEffect(() => {
-    // Only scroll to bottom when messages change, not when chat changes
-    scrollToBottom();
-  }, [messages]);
+    // Disable automatic scrolling to prevent jumping
+    // User can manually scroll to see new messages
+  }, [messages, selectedChat]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Disabled to prevent scroll jumping
+    // messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    
     if (!message.trim() && attachedFiles.length === 0) return;
     if (!selectedChat) return;
+
+    // Store current scroll position
+    const messagesContainer = document.querySelector('.messages-scroll');
+    const currentScrollTop = messagesContainer?.scrollTop || 0;
 
     const newMessage = {
       id: Date.now(),
@@ -141,6 +153,18 @@ const Messages = () => {
 
     setMessage('');
     setAttachedFiles([]);
+    
+    // Remove focus from input to prevent auto-scroll
+    if (messageInputRef.current) {
+      messageInputRef.current.blur();
+    }
+    
+    // Restore scroll position after a short delay
+    setTimeout(() => {
+      if (messagesContainer) {
+        messagesContainer.scrollTop = currentScrollTop;
+      }
+    }, 10);
 
     // Simulate typing indicator and response
     setIsTyping(true);
@@ -201,7 +225,8 @@ const Messages = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSendMessage();
+      e.stopPropagation();
+      handleSendMessage(e);
     }
   };
 
@@ -215,7 +240,8 @@ const Messages = () => {
       </div>
 
       <div className="container">
-        <div className="messages-layout">
+        <div className="page-content">
+          <div className="messages-layout">
           {/* Sidebar with chat list */}
           <div className={`messages-sidebar ${isMobile && !showChatList ? 'mobile-hidden' : ''}`}>
             <div className="sidebar-header">
@@ -249,13 +275,13 @@ const Messages = () => {
                     {chat.isOnline && <div className="status-indicator online"></div>}
                   </div>
                   
-                  <div className="conversation-content">
+                  <div className="conversation-details">
                     <div className="conversation-header">
                       <h4 className="conversation-name">{chat.model.stageName || chat.model.name}</h4>
                       <span className="conversation-time">{chat.lastMessageTime}</span>
                     </div>
                     <div className="conversation-preview">
-                      <p className="last-message">{chat.lastMessage}</p>
+                      <p className="conversation-message">{chat.lastMessage}</p>
                       {chat.unreadCount > 0 && (
                         <span className="unread-count">{chat.unreadCount}</span>
                       )}
@@ -314,7 +340,7 @@ const Messages = () => {
                     {messages[selectedChat.id]?.map(msg => (
                       <div 
                         key={msg.id}
-                        className={`message-bubble ${msg.senderType === 'user' ? 'sent' : 'received'}`}
+                        className={`message ${msg.senderType === 'user' ? 'outgoing' : 'incoming'}`}
                       >
                         {msg.senderType === 'model' && (
                           <div className="message-avatar">
@@ -325,7 +351,7 @@ const Messages = () => {
                           </div>
                         )}
                         
-                        <div className="bubble-content">
+                        <div className="message-bubble">
                           {msg.type === 'media' && msg.attachments && (
                             <div className="message-attachments">
                               {msg.attachments.map((file, index) => (
@@ -345,14 +371,14 @@ const Messages = () => {
                           
                           {msg.content && (
                             <div 
-                              className="bubble-text"
+                              className="message-text"
                               dangerouslySetInnerHTML={{
                                 __html: formatMessageContent(msg.content)
                               }}
                             />
                           )}
                           
-                          <div className="bubble-time">
+                          <div className="message-time">
                             {formatTime(msg.timestamp)}
                           </div>
                         </div>
@@ -360,14 +386,14 @@ const Messages = () => {
                     ))}
                     
                     {isTyping && (
-                      <div className="message-bubble received typing">
+                      <div className="message incoming typing">
                         <div className="message-avatar">
                           <img 
                             src={selectedChat.model.avatar} 
                             alt={selectedChat.model.name}
                           />
                         </div>
-                        <div className="bubble-content">
+                        <div className="message-bubble">
                           <div className="typing-indicator">
                             <div className="typing-dots">
                               <span></span>
@@ -427,6 +453,7 @@ const Messages = () => {
                     </div>
                     
                     <textarea
+                      ref={messageInputRef}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       onKeyPress={handleKeyPress}
@@ -471,6 +498,7 @@ const Messages = () => {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
       </div>

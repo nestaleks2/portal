@@ -318,12 +318,16 @@ const Support = () => {
 
   return (
     <div className="support-page">
-      <div className="page-header">
-        <h1>Support Center</h1>
-        <p>Find answers to your questions and get the help you need</p>
+      <div className="container">
+        <div className="page-header">
+          <h1>Support Center</h1>
+          <p>Find answers to your questions and get the help you need</p>
+        </div>
       </div>
 
-      <div className="support-content">
+      <div className="container">
+        <div className="page-content">
+          <div className="support-content">
         <div className="support-sidebar">
           <div className="section-tabs">
             {Object.entries(supportData).map(([key, section]) => (
@@ -378,14 +382,18 @@ const Support = () => {
               ))}
             </div>
           </div>
+          </div>
+        </div>
         </div>
       </div>
 
-      <div className="contact-support">
-        <div className="contact-section">
-          <h3>Still need help?</h3>
-          <p>Can't find what you're looking for? Our support team is here to help.</p>
-          <button className="btn-primary contact-btn">Contact Support</button>
+      <div className="container">
+        <div className="contact-support">
+          <div className="contact-section">
+            <h3>Still need help?</h3>
+            <p>Can't find what you're looking for? Our support team is here to help.</p>
+            <button className="btn-primary contact-btn">Contact Support</button>
+          </div>
         </div>
       </div>
     </div>

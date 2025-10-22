@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { modelsData } from '../data/modelsData';
+import '../styles/pages/Subscriptions.css';
 
 const Subscriptions = () => {
   const navigate = useNavigate();
@@ -75,37 +76,25 @@ const Subscriptions = () => {
         {/* Header */}
         <div className="page-header">
           <h1>My Subscriptions</h1>
-          <div className="subscription-stats">
-            <span className="stat-item">
-              <span className="stat-count">{activeModels.length}</span>
-              <span className="stat-label">Active</span>
-            </span>
-            <span className="stat-divider">•</span>
-            <span className="stat-item">
-              <span className="stat-count">{expiredModels.length}</span>
-              <span className="stat-label">Expired</span>
-            </span>
-          </div>
         </div>
+      </div>
 
-        {/* Navigation Tabs */}
-        <div className="content-tabs">
+      <div className="container">
+        <div className="page-content">
+          {/* Navigation Tabs */}
+          <div className="content-tabs">
           <div className="tab-buttons">
             <button 
               className={`tab-button ${activeTab === 'active' ? 'active' : ''}`}
               onClick={() => setActiveTab('active')}
             >
-              <span className="tab-icon">✨</span>
-              <span className="tab-text">Active</span>
-              <span className="tab-count">{activeModels.length}</span>
+              Active
             </button>
             <button 
               className={`tab-button ${activeTab === 'expired' ? 'active' : ''}`}
               onClick={() => setActiveTab('expired')}
             >
-              <span className="tab-icon">⏰</span>
-              <span className="tab-text">Expired</span>
-              <span className="tab-count">{expiredModels.length}</span>
+              Expired
             </button>
           </div>
         </div>
@@ -226,6 +215,7 @@ const Subscriptions = () => {
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

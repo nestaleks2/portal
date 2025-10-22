@@ -61,22 +61,22 @@ const ViewerSubscriptionsTab = () => {
 
       <div className="dashboard-wrapper">
         <div className="stats-grid">
-          <div className="stat-card">
+          <div className="dashboard-stat-card">
             <div className="stat-main">
-              <div className="stat-value">{subscriptions.filter(s => s.status === 'active').length}</div>
-              <div className="stat-label">Active Subscriptions</div>
+              <div className="dashboard-stat-number">{subscriptions.filter(s => s.status === 'active').length}</div>
+              <div className="dashboard-stat-label">Active Subscriptions</div>
             </div>
           </div>
-          <div className="stat-card">
+          <div className="dashboard-stat-card">
             <div className="stat-main">
-              <div className="stat-value">${totalMonthlySpend.toFixed(2)}</div>
-              <div className="stat-label">Monthly Spend</div>
+              <div className="dashboard-stat-number">${totalMonthlySpend.toFixed(2)}</div>
+              <div className="dashboard-stat-label">Monthly Spend</div>
             </div>
           </div>
-          <div className="stat-card">
+          <div className="dashboard-stat-card">
             <div className="stat-main">
-              <div className="stat-value">{subscriptions.length}</div>
-              <div className="stat-label">Total Subscribed</div>
+              <div className="dashboard-stat-number">{subscriptions.length}</div>
+              <div className="dashboard-stat-label">Total Subscribed</div>
             </div>
           </div>
         </div>

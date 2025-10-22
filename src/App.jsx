@@ -16,8 +16,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Messages from './pages/Messages';
 import Subscriptions from './pages/Subscriptions';
-import './styles/App.css';
-import './styles/pages.css';
+import './styles/globals.css';
 
 function App() {
   return (

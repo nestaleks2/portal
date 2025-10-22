@@ -229,20 +229,20 @@ const BillingTab = () => {
           <div className="earnings-dashboard">
             <div className="earnings-stats">
               <div className="earnings-stat">
-                <div className="stat-label">This Month</div>
-                <div className="stat-value">{earnings.thisMonth}</div>
+                <div className="dashboard-stat-label">This Month</div>
+                <div className="dashboard-stat-number">{earnings.thisMonth}</div>
               </div>
               <div className="earnings-stat">
-                <div className="stat-label">Last Month</div>
-                <div className="stat-value">{earnings.lastMonth}</div>
+                <div className="dashboard-stat-label">Last Month</div>
+                <div className="dashboard-stat-number">{earnings.lastMonth}</div>
               </div>
               <div className="earnings-stat">
-                <div className="stat-label">Total Earned</div>
-                <div className="stat-value">{earnings.total}</div>
+                <div className="dashboard-stat-label">Total Earned</div>
+                <div className="dashboard-stat-number">{earnings.total}</div>
               </div>
               <div className="earnings-stat">
-                <div className="stat-label">Pending</div>
-                <div className="stat-value">{earnings.pending}</div>
+                <div className="dashboard-stat-label">Pending</div>
+                <div className="dashboard-stat-number">{earnings.pending}</div>
               </div>
             </div>
             

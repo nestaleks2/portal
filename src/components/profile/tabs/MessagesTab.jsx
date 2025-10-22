@@ -219,21 +219,21 @@ const MessagesTab = () => {
       <div className="messaging-stats">
         <h3>Messaging Statistics</h3>
         <div className="stats-grid">
-          <div className="stat-card">
-            <div className="stat-number">{conversations.length}</div>
-            <div className="stat-label">Total Conversations</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">{conversations.length}</div>
+            <div className="dashboard-stat-label">Total Conversations</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number">{conversations.filter(c => c.unread).length}</div>
-            <div className="stat-label">Unread Messages</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">{conversations.filter(c => c.unread).length}</div>
+            <div className="dashboard-stat-label">Unread Messages</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number">{conversations.filter(c => c.isSubscriber).length}</div>
-            <div className="stat-label">Subscriber Chats</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">{conversations.filter(c => c.isSubscriber).length}</div>
+            <div className="dashboard-stat-label">Subscriber Chats</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number">98%</div>
-            <div className="stat-label">Response Rate</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">98%</div>
+            <div className="dashboard-stat-label">Response Rate</div>
           </div>
         </div>
       </div>

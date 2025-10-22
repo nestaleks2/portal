@@ -269,20 +269,20 @@ const ContentTab = () => {
 
         <div className="content-stats">
           <div className="stat-item">
-            <span className="stat-number">{allContent.filter(item => item.type === 'photo').length}</span>
-            <span className="stat-label">Photos</span>
+            <span className="dashboard-stat-number">{allContent.filter(item => item.type === 'photo').length}</span>
+            <span className="dashboard-stat-label">Photos</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{allContent.filter(item => item.type === 'video').length}</span>
-            <span className="stat-label">Videos</span>
+            <span className="dashboard-stat-number">{allContent.filter(item => item.type === 'video').length}</span>
+            <span className="dashboard-stat-label">Videos</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{allContent.filter(item => item.isPremium).length}</span>
-            <span className="stat-label">Premium</span>
+            <span className="dashboard-stat-number">{allContent.filter(item => item.isPremium).length}</span>
+            <span className="dashboard-stat-label">Premium</span>
           </div>
           <div className="stat-item">
-            <span className="stat-number">{allContent.filter(item => item.status === 'draft' || item.status === 'processing').length}</span>
-            <span className="stat-label">Drafts</span>
+            <span className="dashboard-stat-number">{allContent.filter(item => item.status === 'draft' || item.status === 'processing').length}</span>
+            <span className="dashboard-stat-label">Drafts</span>
           </div>
         </div>
 

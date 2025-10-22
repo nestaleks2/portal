@@ -77,21 +77,21 @@ const FollowersTab = () => {
       </div>
 
       <div className="followers-stats">
-        <div className="stat-card">
-          <div className="stat-number">{stats.followers}</div>
-          <div className="stat-label">Followers</div>
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-number">{stats.followers}</div>
+          <div className="dashboard-stat-label">Followers</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-number">{stats.following}</div>
-          <div className="stat-label">Following</div>
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-number">{stats.following}</div>
+          <div className="dashboard-stat-label">Following</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-number">{stats.subscribers}</div>
-          <div className="stat-label">Subscribers</div>
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-number">{stats.subscribers}</div>
+          <div className="dashboard-stat-label">Subscribers</div>
         </div>
-        <div className="stat-card">
-          <div className="stat-number">{stats.premiumSubscribers}</div>
-          <div className="stat-label">Premium Subscribers</div>
+        <div className="dashboard-stat-card">
+          <div className="dashboard-stat-number">{stats.premiumSubscribers}</div>
+          <div className="dashboard-stat-label">Premium Subscribers</div>
         </div>
       </div>
 

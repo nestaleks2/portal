@@ -1,0 +1,389 @@
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    grid-auto-flow: row !important;
+    justify-content: stretch;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.model-tile {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-secondary);
+    border-bottom: 1px solid var(--border-secondary);
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    aspect-ratio: 9 / 16;
+}
+
+.model-tile:hover {
+    border-color: var(--color-primary);
+}
+
+.model-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.3s ease;
+}
+
+.model-tile.wide img {
+    object-position: center top;
+}
+
+.model-tile:hover img {
+    transform: scale(1.1);
+}
+
+.model-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        transparent, 
+        rgba(0, 0, 0, 0.7) 50%, 
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    color: var(--text-primary);
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.model-tile:hover .model-overlay {
+    transform: translateY(0);
+}
+
+.model-overlay h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.model-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.see-more-section {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.see-more-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--color-primary);
+    color: var(--text-primary);
+}
+
+.see-more-btn:hover {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+}
+
+/* Site-Style Models Filter */
+.models-filters {
+    margin-bottom: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    border: 1px solid var(--border-secondary);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+/* Filters Container */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+    padding: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 160px;
+    flex: 1;
+}
+
+.filter-label {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+/* Select Styling */
+.select-wrapper {
+    position: relative;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+}
+
+.filter-select:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(255, 20, 147, 0.1);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+/* Gender Buttons */
+.gender-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.gender-btn {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex: 1;
+    text-align: center;
+}
+
+.gender-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-light);
+}
+
+.gender-btn.active {
+    background: var(--gradient-primary);
+    border-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Age Range */
+.age-range-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.age-input-group {
+    flex: 1;
+}
+
+.age-select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.age-select:hover {
+    border-color: var(--color-primary);
+}
+
+.age-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+.age-separator {
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+/* Reset Button */
+.reset-filters-btn {
+    padding: 0.6rem 1.25rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-secondary);
+    color: var(--text-secondary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.reset-filters-btn:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Legacy styles for backward compatibility */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 200px;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.filter-select, .filter-input {
+    padding: 0.5rem;
+    border: 1px solid var(--border-secondary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 4px;
+}
+
+.filter-select:focus, .filter-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.clear-filters-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-filters-btn:hover {
+    background: var(--color-primary);
+    color: var(--text-primary);
+    border-color: var(--color-primary);
+}
+
+/* Border management for grid tiles */
+.model-tile:nth-child(4n) {
+    border-right: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .models-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: row !important;
+    }
+    
+    .model-tile:nth-child(4n) {
+        border-right: 1px solid var(--border-secondary);
+    }
+    .model-tile:nth-child(3n) {
+        border-right: none;
+    }
+    
+    .models-filters {
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .filters-container {
+        padding: 1rem;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        min-width: auto;
+    }
+    
+    .gender-buttons {
+        gap: 0.5rem;
+    }
+    
+    .gender-btn {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.5rem;
+    }
+    
+    .filter-label {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .filter-select, .age-select {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .reset-filters-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+    
+    .age-range-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+    
+    .age-separator {
+        align-self: center;
+        padding: 0;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row !important;
+    }
+    
+    .model-tile:nth-child(3n) {
+        border-right: 1px solid var(--border-secondary);
+    }
+    .model-tile:nth-child(2n) {
+        border-right: none;
+    }
+}

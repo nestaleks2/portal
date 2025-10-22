@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../img/logo.png';
+import '../styles/components/Header.css';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,12 +11,12 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const headerHeight = 160; // Approximate header height
-      const isMobile = window.innerWidth < 1024;
+      const isMobile = window.innerWidth <= 1280;
       setIsScrolled(window.scrollY > headerHeight || isMobile);
     };
 
     const handleResize = () => {
-      const isMobile = window.innerWidth < 1024;
+      const isMobile = window.innerWidth <= 1280;
       if (isMobile) {
         setIsScrolled(true);
       } else {
@@ -88,15 +89,13 @@ const Header = () => {
                 </button>
               </div>
               <button 
-                className="mobile-menu-toggle"
+                className={`mobile-menu-button ${isMobileMenuOpen ? 'active' : ''}`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+                <span></span>
+                <span></span>
+                <span></span>
               </button>
             </div>
           </div>
@@ -140,15 +139,13 @@ const Header = () => {
                 </button>
               </div>
               <button 
-                className="mobile-menu-toggle"
+                className={`mobile-menu-button ${isMobileMenuOpen ? 'active' : ''}`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+                <span></span>
+                <span></span>
+                <span></span>
               </button>
             </div>
           </div>

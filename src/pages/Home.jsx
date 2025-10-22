@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSlider from '../components/HeroSlider';
 import Banners from '../components/Banners';
 import ModelsGrid from '../components/ModelsGrid';
+import '../styles/pages/Home.css';
 
 const Home = () => {
   return (

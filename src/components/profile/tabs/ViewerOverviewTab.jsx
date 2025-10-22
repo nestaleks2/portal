@@ -52,10 +52,10 @@ const ViewerOverviewTab = () => {
       <div className="dashboard-wrapper">
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-card">
+            <div key={index} className="dashboard-stat-card">
               <div className="stat-main">
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
+                <div className="dashboard-stat-number">{stat.value}</div>
+                <div className="dashboard-stat-label">{stat.label}</div>
               </div>
               <div className={`stat-change ${stat.trend}`}>
                 <span className="change-icon">{stat.trend === 'up' ? '↗' : '↘'}</span>

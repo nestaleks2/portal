@@ -77,66 +77,82 @@ const ModelsFilter = ({ models, onFilterChange }) => {
       <div className="filters-container">
         {/* Country Filter */}
         <div className="filter-group">
-          <label className="filter-label">Country</label>
-          <select 
-            className="filter-select"
-            value={filters.country}
-            onChange={(e) => handleFilterChange('country', e.target.value)}
-          >
-            <option value="all">All Countries</option>
-            {getUniqueCountries().map(country => (
-              <option key={country} value={country}>{country}</option>
-            ))}
-          </select>
+          <label className="filter-label">Location</label>
+          <div className="select-wrapper">
+            <select 
+              className="filter-select"
+              value={filters.country}
+              onChange={(e) => handleFilterChange('country', e.target.value)}
+            >
+              <option value="all">All Countries</option>
+              {getUniqueCountries().map(country => (
+                <option key={country} value={country}>{country}</option>
+              ))}
+            </select>
+          </div>
         </div>
 
         {/* Gender Filter */}
         <div className="filter-group">
           <label className="filter-label">Gender</label>
-          <select 
-            className="filter-select"
-            value={filters.gender}
-            onChange={(e) => handleFilterChange('gender', e.target.value)}
-          >
-            <option value="all">All Genders</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="non-binary">Non-binary</option>
-          </select>
+          <div className="gender-buttons">
+            <button 
+              className={`gender-btn ${filters.gender === 'all' ? 'active' : ''}`}
+              onClick={() => handleFilterChange('gender', 'all')}
+            >
+              All
+            </button>
+            <button 
+              className={`gender-btn ${filters.gender === 'female' ? 'active' : ''}`}
+              onClick={() => handleFilterChange('gender', 'female')}
+            >
+              Female
+            </button>
+            <button 
+              className={`gender-btn ${filters.gender === 'male' ? 'active' : ''}`}
+              onClick={() => handleFilterChange('gender', 'male')}
+            >
+              Male
+            </button>
+          </div>
         </div>
 
         {/* Age Range Filter */}
         <div className="filter-group">
           <label className="filter-label">Age Range</label>
           <div className="age-range-container">
-            <select 
-              className="filter-select age-select"
-              value={filters.ageFrom}
-              onChange={(e) => handleFilterChange('ageFrom', e.target.value)}
-            >
-              <option value="">From</option>
-              {Array.from({ length: 50 }, (_, i) => i + 18).map(age => (
-                <option key={age} value={age}>{age}</option>
-              ))}
-            </select>
-            <span className="age-separator">-</span>
-            <select 
-              className="filter-select age-select"
-              value={filters.ageTo}
-              onChange={(e) => handleFilterChange('ageTo', e.target.value)}
-            >
-              <option value="">To</option>
-              {Array.from({ length: 50 }, (_, i) => i + 18).map(age => (
-                <option key={age} value={age}>{age}</option>
-              ))}
-            </select>
+            <div className="age-input-group">
+              <select 
+                className="filter-select age-select"
+                value={filters.ageFrom}
+                onChange={(e) => handleFilterChange('ageFrom', e.target.value)}
+              >
+                <option value="">From</option>
+                {Array.from({ length: 50 }, (_, i) => i + 18).map(age => (
+                  <option key={age} value={age}>{age}</option>
+                ))}
+              </select>
+            </div>
+            <span className="age-separator">–</span>
+            <div className="age-input-group">
+              <select 
+                className="filter-select age-select"
+                value={filters.ageTo}
+                onChange={(e) => handleFilterChange('ageTo', e.target.value)}
+              >
+                <option value="">To</option>
+                {Array.from({ length: 50 }, (_, i) => i + 18).map(age => (
+                  <option key={age} value={age}>{age}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
 
         {/* Reset Button */}
         <div className="filter-group">
           <button 
-            className="btn-secondary reset-filters-btn"
+            className="reset-filters-btn"
             onClick={resetFilters}
           >
             Reset Filters

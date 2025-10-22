@@ -75,17 +75,17 @@ const SubscriptionsTab = () => {
 
       <div className="subscription-overview">
         <div className="overview-stats">
-          <div className="stat-card">
-            <div className="stat-number">{subscriptions.filter(s => s.status === 'active').length}</div>
-            <div className="stat-label">Active Subscriptions</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">{subscriptions.filter(s => s.status === 'active').length}</div>
+            <div className="dashboard-stat-label">Active Subscriptions</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number">${subscriptions.filter(s => s.status === 'active').reduce((sum, s) => sum + parseFloat(s.price.replace('$', '').replace('/month', '')), 0).toFixed(2)}</div>
-            <div className="stat-label">Monthly Spending</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">${subscriptions.filter(s => s.status === 'active').reduce((sum, s) => sum + parseFloat(s.price.replace('$', '').replace('/month', '')), 0).toFixed(2)}</div>
+            <div className="dashboard-stat-label">Monthly Spending</div>
           </div>
-          <div className="stat-card">
-            <div className="stat-number">{subscriptions.length}</div>
-            <div className="stat-label">Total Subscriptions</div>
+          <div className="dashboard-stat-card">
+            <div className="dashboard-stat-number">{subscriptions.length}</div>
+            <div className="dashboard-stat-label">Total Subscriptions</div>
           </div>
         </div>
       </div>

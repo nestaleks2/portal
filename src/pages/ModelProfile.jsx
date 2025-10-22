@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { modelsData } from '../data/modelsData';
 import Lightbox from '../components/Lightbox';
+import '../styles/pages/ModelProfile.css';
+import instagramIcon from '../img/icons/instagram.svg';
+import xIcon from '../img/icons/x.svg';
+import youtubeIcon from '../img/icons/youtube.svg';
+import onlyfansIcon from '../img/icons/onlyfans.svg';
+import linkmeIcon from '../img/icons/linkme.png';
+import websiteIcon from '../img/icons/website.svg';
+import photoIcon from '../img/icons/photo.svg';
+import videoIcon from '../img/icons/video.svg';
+import premiumIcon from '../img/icons/premium.svg';
 
 const ModelProfile = () => {
   const { id } = useParams();
@@ -52,10 +62,9 @@ const ModelProfile = () => {
           </div>
           
           <div className="info-section">
-            <h1 className="model-name">{model.stageName || model.name}</h1>
-            {model.stageName && model.stageName !== model.name && (
-              <p className="real-name">Real name: {model.name} {model.surname}</p>
-            )}
+            <h1 className="model-name">
+              {model.name} "{model.stageName}" {model.surname}
+            </h1>
             
             <div className="bio-section">
               {model.bioEN && (
@@ -80,37 +89,37 @@ const ModelProfile = () => {
                 <div className="social-links">
                   {model.social.instagram && (
                     <a href={model.social.instagram} target="_blank" rel="noopener noreferrer" className="social-link instagram">
-                      <span className="social-icon">📷</span>
+                      <img src={instagramIcon} alt="Instagram" className="social-icon" />
                       Instagram
                     </a>
                   )}
                   {model.social.x && (
                     <a href={model.social.x} target="_blank" rel="noopener noreferrer" className="social-link twitter">
-                      <span className="social-icon">✖️</span>
+                      <img src={xIcon} alt="X" className="social-icon" />
                       X (Twitter)
                     </a>
                   )}
                   {model.social.youtube && (
                     <a href={model.social.youtube} target="_blank" rel="noopener noreferrer" className="social-link youtube">
-                      <span className="social-icon">📺</span>
+                      <img src={youtubeIcon} alt="YouTube" className="social-icon" />
                       YouTube
                     </a>
                   )}
                   {model.social.onlyfans && (
                     <a href={model.social.onlyfans} target="_blank" rel="noopener noreferrer" className="social-link onlyfans">
-                      <span className="social-icon">🔥</span>
+                      <img src={onlyfansIcon} alt="OnlyFans" className="social-icon" />
                       OnlyFans
                     </a>
                   )}
                   {model.social.linkme && (
                     <a href={model.social.linkme} target="_blank" rel="noopener noreferrer" className="social-link linkme">
-                      <span className="social-icon">🔗</span>
+                      <img src={linkmeIcon} alt="LinkMe" className="social-icon" />
                       LinkMe
                     </a>
                   )}
                   {model.social.website && (
                     <a href={model.social.website} target="_blank" rel="noopener noreferrer" className="social-link website">
-                      <span className="social-icon">🌐</span>
+                      <img src={websiteIcon} alt="Website" className="social-icon" />
                       Website
                     </a>
                   )}
@@ -128,33 +137,31 @@ const ModelProfile = () => {
 
         {/* Content Tabs */}
         <div className="content-section">
-          <div className="content-tabs">
-            <div className="tab-buttons">
-              <button 
-                className={`tab-button ${activeTab === 'photos' ? 'active' : ''}`}
-                onClick={() => setActiveTab('photos')}
-              >
-                <span className="tab-icon">📷</span>
-                <span className="tab-text">Photos</span>
-                <span className="tab-count">{model.photos.length}</span>
-              </button>
-              <button 
-                className={`tab-button ${activeTab === 'videos' ? 'active' : ''}`}
-                onClick={() => setActiveTab('videos')}
-              >
-                <span className="tab-icon">🎬</span>
-                <span className="tab-text">Videos</span>
-                <span className="tab-count">{model.videos.length}</span>
-              </button>
-              <button 
-                className={`tab-button ${activeTab === 'premium' ? 'active' : ''}`}
-                onClick={() => setActiveTab('premium')}
-              >
-                <span className="tab-icon">⭐</span>
-                <span className="tab-text">Premium</span>
-                <span className="tab-count">{model.premiumPhotos?.length || 0}</span>
-              </button>
-            </div>
+          <div className="model-content-tabs">
+            <button 
+              className={`tab-button ${activeTab === 'photos' ? 'active' : ''}`}
+              onClick={() => setActiveTab('photos')}
+            >
+              <img src={photoIcon} alt="Photos" className="tab-icon" />
+              <span className="tab-text">Photos</span>
+              <span className="tab-count">{model.photos.length}</span>
+            </button>
+            <button 
+              className={`tab-button ${activeTab === 'videos' ? 'active' : ''}`}
+              onClick={() => setActiveTab('videos')}
+            >
+              <img src={videoIcon} alt="Videos" className="tab-icon" />
+              <span className="tab-text">Videos</span>
+              <span className="tab-count">{model.videos.length}</span>
+            </button>
+            <button 
+              className={`tab-button ${activeTab === 'premium' ? 'active' : ''}`}
+              onClick={() => setActiveTab('premium')}
+            >
+              <img src={premiumIcon} alt="Premium" className="tab-icon" />
+              <span className="tab-text">Premium</span>
+              <span className="tab-count">{model.premiumPhotos?.length || 0}</span>
+            </button>
           </div>
 
           {/* Tab Content */}
