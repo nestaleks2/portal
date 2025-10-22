@@ -20,7 +20,7 @@ main {
 /* Responsive adjustments */
 @media (max-width: 1280px) {
     main {
-        padding-top: 70px;
+        padding-top: 30px;
     }
 }
 

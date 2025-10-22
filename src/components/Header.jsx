@@ -65,7 +65,9 @@ const Header = () => {
         <div className="header-top">
           <div className="container">
             <div className="nav-brand">
-              <img src={logo} alt="X-Models" className="logo" />
+              <Link to="/" className="logo-link">
+                <img src={logo} alt="X-Models" className="logo" />
+              </Link>
             </div>
           </div>
         </div>
@@ -120,7 +122,9 @@ const Header = () => {
           <div className="container">
             <div className="nav-content">
               <div className="nav-brand-sticky">
-                <img src={logo} alt="X-Models" className="logo-sticky" />
+                <Link to="/" className="logo-link">
+                  <img src={logo} alt="X-Models" className="logo-sticky" />
+                </Link>
               </div>
               <div className="nav-menu">
                 <Link to="/" className="nav-link">Home</Link>
@@ -177,7 +181,9 @@ const Header = () => {
         <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           <div className="mobile-menu-content">
             <div className="mobile-menu-header">
-              <img src={logo} alt="X-Models" className="mobile-logo" />
+              <Link to="/" className="logo-link" onClick={closeMobileMenu}>
+                <img src={logo} alt="X-Models" className="mobile-logo" />
+              </Link>
               <button 
                 className="mobile-menu-close"
                 onClick={closeMobileMenu}
