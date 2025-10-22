@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/pages/BecomeCreator.css';
 
 const BecomeCreator = () => {
   const [activeStep, setActiveStep] = useState(1);
