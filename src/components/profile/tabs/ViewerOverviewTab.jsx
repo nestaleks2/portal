@@ -49,21 +49,19 @@ const ViewerOverviewTab = () => {
         <p>Your activity and engagement statistics</p>
       </div>
 
-      <div className="dashboard-wrapper">
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div key={index} className="dashboard-stat-card">
-              <div className="stat-main">
-                <div className="dashboard-stat-number">{stat.value}</div>
-                <div className="dashboard-stat-label">{stat.label}</div>
-              </div>
-              <div className={`stat-change ${stat.trend}`}>
-                <span className="change-icon">{stat.trend === 'up' ? '↗' : '↘'}</span>
-                <span className="change-value">{stat.change}</span>
-              </div>
+      <div className="stats-grid">
+        {stats.map((stat, index) => (
+          <div key={index} className="dashboard-stat-card">
+            <div className="stat-main">
+              <div className="dashboard-stat-number">{stat.value}</div>
+              <div className="dashboard-stat-label">{stat.label}</div>
             </div>
-          ))}
-        </div>
+            <div className={`stat-change ${stat.trend}`}>
+              <span className="change-icon">{stat.trend === 'up' ? '↗' : '↘'}</span>
+              <span className="change-value">{stat.change}</span>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="overview-content">

@@ -5,7 +5,9 @@ import '../styles/pages/Dashboard.css';
 const DashboardCreator = () => {
   return (
     <div className="dashboard">
-      <CreatorProfileTabs />
+      <div className="container">
+        <CreatorProfileTabs />
+      </div>
     </div>
   );
 };
