@@ -70,8 +70,8 @@ const PremiumSubscription = () => {
 
   return (
     <div className="premium-page">
-      <section className="about-hero premium-hero">
-        <div className="container">
+      <div className="container">
+        <section className="about-hero premium-hero">
           <div className="hero-content">
             <h1>Unlock Premium Access</h1>
             <p className="hero-subtitle">
@@ -84,11 +84,9 @@ const PremiumSubscription = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-stats premium-stats">
-        <div className="container">
+        <section className="about-stats premium-stats">
           <div className="stats-grid">
             <div className="stat-item">
               <div className="stat-number">50K+</div>
@@ -107,11 +105,9 @@ const PremiumSubscription = () => {
               <div className="stat-label">User Rating</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-features premium-features">
-        <div className="container">
+        <section className="about-features premium-features">
           <div className="section-header">
             <h2>What You'll Get with Premium</h2>
             <p>Unlock exclusive features and content that enhance your experience on our platform.</p>
@@ -125,11 +121,9 @@ const PremiumSubscription = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="content-preview">
-        <div className="container">
+        <section className="content-preview">
           <div className="section-header">
             <h2>Preview Exclusive Content</h2>
             <p>Get a glimpse of the premium content waiting for you inside.</p>
@@ -157,11 +151,9 @@ const PremiumSubscription = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="premium-pricing">
-        <div className="container">
+        <section className="premium-pricing">
           <div className="section-header">
             <h2>Premium Subscription</h2>
             <p>One simple plan with everything you need for the ultimate experience.</p>
@@ -189,11 +181,9 @@ const PremiumSubscription = () => {
               </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="premium-testimonials">
-        <div className="container">
+        <section className="premium-testimonials">
           <div className="section-header">
             <h2>What Our Users Say</h2>
             <p>Hear from our community about their premium experience.</p>
@@ -236,11 +226,9 @@ const PremiumSubscription = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-values subscription-benefits">
-        <div className="container">
+        <section className="about-values subscription-benefits">
           <div className="section-header">
             <h2>Why Choose Premium?</h2>
             <p>Discover the benefits that make our premium membership exceptional.</p>
@@ -262,11 +250,9 @@ const PremiumSubscription = () => {
               <p>Your subscription directly supports content creators and helps them produce better content</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="premium-faq">
-        <div className="container">
+        <section className="premium-faq">
           <div className="section-header">
             <h2>Frequently Asked Questions</h2>
             <p>Find answers to common questions about our premium membership.</p>
@@ -285,11 +271,9 @@ const PremiumSubscription = () => {
               <p>Yes! New users get a 7-day free trial to experience all premium features before committing to a subscription.</p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-mission premium-cta">
-        <div className="container">
+        <section className="about-mission premium-cta">
           <div className="mission-content">
             <h2>Ready to Go Premium?</h2>
             <div className="mission-text">
@@ -302,8 +286,8 @@ const PremiumSubscription = () => {
             </div>
             <p className="cta-note">7-day free trial • Cancel anytime • Secure payment • Instant access</p>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

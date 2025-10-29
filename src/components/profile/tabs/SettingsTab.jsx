@@ -59,32 +59,35 @@ const SettingsTab = () => {
       <div className="settings-sections">
         <div className="settings-section">
           <h3>Profile Information</h3>
-          <div className="profile-photo-section">
-            <div className="current-photo">
+          <div className="profile-photo-section settings-photo-section">
+            <div className="current-photo settings-current-photo">
               <img 
                 src="https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
                 alt="Profile" 
-                className="profile-photo"
+                className="profile-photo settings-profile-photo"
               />
             </div>
-            <div className="photo-controls">
+            <div className="photo-controls settings-photo-controls">
               <input 
                 type="file" 
                 id="avatar-upload" 
                 accept="image/*" 
                 onChange={handleAvatarChange}
                 style={{ display: 'none' }}
+                aria-label="Upload profile photo"
               />
-              <label htmlFor="avatar-upload" className="btn-secondary">
+              <label htmlFor="avatar-upload" className="btn-secondary settings-btn">
                 Change Photo
               </label>
-              <button className="btn-danger">Remove</button>
+              <button className="btn-danger settings-btn" aria-label="Remove profile photo">
+                Remove
+              </button>
             </div>
           </div>
 
-          <div className="form-grid">
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
+          <div className="form-grid settings-form-grid">
+            <div className="form-group settings-form-group">
+              <label htmlFor="name" className="settings-label">Full Name</label>
               <input
                 type="text"
                 id="name"
@@ -92,7 +95,8 @@ const SettingsTab = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
+                aria-describedby="name-description"
               />
             </div>
 
@@ -135,18 +139,22 @@ const SettingsTab = () => {
               />
             </div>
 
-            <div className="form-group full-width">
-              <label htmlFor="bio">Bio</label>
+            <div className="form-group settings-form-group full-width">
+              <label htmlFor="bio" className="settings-label">Bio</label>
               <textarea
                 id="bio"
                 name="bio"
                 value={formData.bio}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-textarea"
+                className="form-textarea settings-textarea"
                 rows="4"
                 placeholder="Tell people about yourself..."
+                aria-describedby="bio-description"
               />
+              <small id="bio-description" className="form-description">
+                Share your background and interests
+              </small>
             </div>
 
             <div className="form-group">
@@ -283,18 +291,21 @@ const SettingsTab = () => {
 
         <div className="settings-section">
           <h3>Notification Preferences</h3>
-          <div className="checkbox-group">
-            <label className="checkbox-container">
+          <div className="checkbox-group settings-checkbox-group">
+            <label className="checkbox-container settings-checkbox-container">
               <input
                 type="checkbox"
                 name="emailNotifications"
                 checked={formData.emailNotifications}
                 onChange={handleInputChange}
                 disabled={!isEditing}
+                aria-describedby="email-notifications-desc"
               />
-              <span className="checkmark"></span>
-              Email Notifications
-              <span className="checkbox-description">Receive notifications via email</span>
+              <span className="checkmark settings-checkmark"></span>
+              <span className="checkbox-label">Email Notifications</span>
+              <span id="email-notifications-desc" className="checkbox-description">
+                Receive notifications via email
+              </span>
             </label>
 
             <label className="checkbox-container">

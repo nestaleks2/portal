@@ -323,9 +323,7 @@ const Support = () => {
           <h1>Support Center</h1>
           <p>Find answers to your questions and get the help you need</p>
         </div>
-      </div>
 
-      <div className="container">
         <div className="page-content">
           <div className="support-content">
         <div className="support-sidebar">
@@ -385,9 +383,7 @@ const Support = () => {
           </div>
         </div>
         </div>
-      </div>
 
-      <div className="container">
         <div className="contact-support">
           <div className="contact-section">
             <h3>Still need help?</h3>

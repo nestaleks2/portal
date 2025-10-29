@@ -95,8 +95,8 @@ const BecomeCreator = () => {
 
   return (
     <div className="become-creator-page">
-      <div className="creator-hero">
-        <div className="container">
+      <div className="container">
+        <div className="creator-hero">
           <h1>How to Become a Creator</h1>
           <p>Transform your passion into a profitable modeling career</p>
           <div className="hero-features">
@@ -114,10 +114,8 @@ const BecomeCreator = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="creator-requirements">
-        <div className="container">
+        <div className="creator-requirements">
           <h2>Basic Requirements</h2>
           <div className="requirements-grid">
             {requirements.map((requirement, index) => (
@@ -128,10 +126,8 @@ const BecomeCreator = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="creator-steps">
-        <div className="container">
+        <div className="creator-steps">
           <h2>Getting Started in 4 Steps</h2>
           <div className="steps-navigation">
             {steps.map((step) => (
@@ -162,10 +158,8 @@ const BecomeCreator = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="creator-tips">
-        <div className="container">
+        <div className="creator-tips">
           <h2>Pro Tips for Success</h2>
           <div className="tips-grid">
             {tips.map((tip, index) => (
@@ -177,10 +171,8 @@ const BecomeCreator = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="creator-earning">
-        <div className="container">
+        <div className="creator-earning">
           <h2>Earning Potential</h2>
           <div className="earning-grid">
             <div className="earning-card">
@@ -218,10 +210,8 @@ const BecomeCreator = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="creator-success-stories">
-        <div className="container">
+        <div className="creator-success-stories">
           <h2>Success Stories</h2>
           <div className="stories-grid">
             <div className="story">
@@ -250,10 +240,8 @@ const BecomeCreator = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="creator-cta">
-        <div className="container">
+        <div className="creator-cta">
           <h2>Ready to Start Your Journey?</h2>
           <p>Join our community of successful creators and start building your modeling career today</p>
           <button className="btn-creator-large">Create Your Profile Now</button>

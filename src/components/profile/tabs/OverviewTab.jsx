@@ -49,15 +49,17 @@ const OverviewTab = () => {
         <p>Your account performance and recent activity</p>
       </div>
 
-      <div className="stats-grid">
+      <div className="stats-grid overview-stats-grid">
         {stats.map((stat, index) => (
-          <div key={index} className="dashboard-stat-card">
+          <div key={index} className="dashboard-stat-card overview-stat-card">
             <div className="stat-main">
               <div className="dashboard-stat-number">{stat.value}</div>
               <div className="dashboard-stat-label">{stat.label}</div>
             </div>
             <div className={`stat-change ${stat.trend}`}>
-              <span className="change-icon">{stat.trend === 'up' ? '↗' : '↘'}</span>
+              <span className="change-icon" aria-label={stat.trend === 'up' ? 'Increase' : 'Decrease'}>
+                {stat.trend === 'up' ? '↗' : '↘'}
+              </span>
               <span className="change-value">{stat.change}</span>
             </div>
           </div>
@@ -65,7 +67,7 @@ const OverviewTab = () => {
       </div>
 
       <div className="overview-content">
-        <div className="overview-section">
+        <div className="activity-section">
           <h3>Recent Activity</h3>
           <div className="activity-list">
             {recentActivity.map((activity, index) => (
@@ -80,7 +82,7 @@ const OverviewTab = () => {
           </div>
         </div>
 
-        <div className="overview-section">
+        <div className="posts-section">
           <h3>Top Performing Posts</h3>
           <div className="top-posts">
             {topPosts.map((post) => (
@@ -108,29 +110,29 @@ const OverviewTab = () => {
         </div>
       </div>
 
-      <div className="overview-section">
+      <div className="actions-section">
         <h3>Quick Actions</h3>
-        <div className="quick-actions">
-          <button className="action-btn primary">
+        <div className="quick-actions overview-quick-actions">
+          <button className="action-btn primary" aria-label="Upload new content">
             <span className="action-icon">📷</span>
-            Upload Content
+            <span className="action-text">Upload Content</span>
           </button>
-          <button className="action-btn secondary">
+          <button className="action-btn secondary" aria-label="View performance analytics">
             <span className="action-icon">📊</span>
-            View Analytics
+            <span className="action-text">View Analytics</span>
           </button>
-          <button className="action-btn secondary">
+          <button className="action-btn secondary" aria-label="Check messages">
             <span className="action-icon">💬</span>
-            Check Messages
+            <span className="action-text">Check Messages</span>
           </button>
-          <button className="action-btn secondary">
+          <button className="action-btn secondary" aria-label="Update profile settings">
             <span className="action-icon">⚙️</span>
-            Update Profile
+            <span className="action-text">Update Profile</span>
           </button>
         </div>
       </div>
 
-      <div className="overview-section">
+      <div className="chart-section">
         <h3>Performance Chart</h3>
         <div className="chart-container">
           <div className="chart-placeholder">

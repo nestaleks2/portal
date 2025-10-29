@@ -188,8 +188,8 @@ const ContentTab = () => {
 
       <div className="upload-section">
         <h3>Upload New Content</h3>
-        <div className="upload-area">
-          <div className="upload-box">
+        <div className="upload-area content-upload-area">
+          <div className="upload-box content-upload-box">
             <span className="upload-icon">📷</span>
             <h4>Upload Photos</h4>
             <p>JPG, PNG up to 10MB</p>
@@ -199,10 +199,11 @@ const ContentTab = () => {
               multiple 
               accept="image/*"
               onChange={handleFileUpload}
+              aria-label="Choose photo files to upload"
             />
-            <button className="upload-btn">Choose Files</button>
+            <button className="upload-btn" aria-label="Select photo files">Choose Files</button>
           </div>
-          <div className="upload-box">
+          <div className="upload-box content-upload-box">
             <span className="upload-icon">🎥</span>
             <h4>Upload Videos</h4>
             <p>MP4, MOV up to 100MB</p>
@@ -212,14 +213,15 @@ const ContentTab = () => {
               multiple 
               accept="video/*"
               onChange={handleFileUpload}
+              aria-label="Choose video files to upload"
             />
-            <button className="upload-btn">Choose Files</button>
+            <button className="upload-btn" aria-label="Select video files">Choose Files</button>
           </div>
-          <div className="upload-box">
+          <div className="upload-box content-upload-box">
             <span className="upload-icon">📱</span>
             <h4>Live Stream</h4>
             <p>Start live streaming</p>
-            <button className="upload-btn live-btn">Go Live</button>
+            <button className="upload-btn live-btn" aria-label="Start live streaming">Go Live</button>
           </div>
         </div>
         
@@ -252,14 +254,16 @@ const ContentTab = () => {
       </div>
 
       <div className="content-section">
-        <div className="content-header">
+        <div className="content-header content-tab-header">
           <h3>Your Content</h3>
-          <div className="content-filters">
+          <div className="content-filters content-tab-filters">
             {['all', 'photos', 'videos', 'premium', 'drafts'].map(filterType => (
               <button
                 key={filterType}
-                className={`filter-btn ${filter === filterType ? 'active' : ''}`}
+                className={`filter-btn content-filter-btn ${filter === filterType ? 'active' : ''}`}
                 onClick={() => setFilter(filterType)}
+                aria-pressed={filter === filterType}
+                aria-label={`Filter by ${filterType}`}
               >
                 {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
               </button>

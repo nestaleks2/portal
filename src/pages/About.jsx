@@ -62,9 +62,9 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* Hero Section */}
-      <section className="about-hero">
-        <div className="container">
+      <div className="container">
+        {/* Hero Section */}
+        <section className="about-hero">
           <div className="hero-content">
             <h1>About Our Platform</h1>
             <p className="hero-subtitle">
@@ -79,12 +79,10 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats Section */}
-      <section className="about-stats">
-        <div className="container">
+        {/* Stats Section */}
+        <section className="about-stats">
           <div className="stats-grid">
             {stats.map((stat, index) => (
               <div key={index} className="stat-item">
@@ -93,12 +91,10 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Section */}
-      <section className="about-features">
-        <div className="container">
+        {/* Features Section */}
+        <section className="about-features">
           <div className="section-header">
             <h2>Why Choose Our Platform</h2>
             <p>We've built our platform with creators and fans in mind, focusing on the features that matter most.</p>
@@ -112,12 +108,10 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Values Section */}
-      <section className="about-values">
-        <div className="container">
+        {/* Values Section */}
+        <section className="about-values">
           <div className="section-header">
             <h2>Our Core Values</h2>
             <p>The principles that guide everything we do and every decision we make.</p>
@@ -130,12 +124,10 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Mission Statement */}
-      <section className="about-mission">
-        <div className="container">
+        {/* Mission Statement */}
+        <section className="about-mission">
           <div className="mission-content">
             <h2>Our Mission</h2>
             <div className="mission-text">
@@ -150,12 +142,10 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Company Info */}
-      <section className="about-company">
-        <div className="container">
+        {/* Company Info */}
+        <section className="about-company">
           <div className="company-grid">
             <div className="company-info">
               <h2>About the Company</h2>
@@ -186,12 +176,10 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Call to Action */}
-      <section className="about-cta">
-        <div className="container">
+        {/* Call to Action */}
+        <section className="about-cta">
           <div className="cta-content">
             <h2>Ready to Join Our Community?</h2>
             <p>Whether you're a creator looking to monetize your content or a fan seeking unique experiences, we're here for you.</p>
@@ -200,8 +188,8 @@ const About = () => {
               <button className="btn-secondary">Explore Content</button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import OverviewTab from './tabs/OverviewTab';
 import ContentTab from './tabs/ContentTab';
 import SubscriptionsTab from './tabs/SubscriptionsTab';
@@ -10,6 +10,10 @@ import BillingTab from './tabs/BillingTab';
 
 const ProfileTabs = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [hasOverflow, setHasOverflow] = useState(false);
+  const tabsRef = useRef(null);
 
   const tabs = [
     { id: 'overview', label: 'Overview', component: OverviewTab },
@@ -24,6 +28,59 @@ const ProfileTabs = () => {
 
   const activeTabData = tabs.find(tab => tab.id === activeTab);
   const ActiveComponent = activeTabData?.component;
+
+  const checkScrollability = () => {
+    if (tabsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsRef.current;
+      const overflow = scrollWidth > clientWidth;
+      
+      setHasOverflow(overflow);
+      setCanScrollLeft(overflow && scrollLeft > 0);
+      setCanScrollRight(overflow && scrollLeft < scrollWidth - clientWidth);
+    }
+  };
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    
+    // Add haptic feedback simulation for mobile
+    if ('vibrate' in navigator) {
+      navigator.vibrate(50);
+    }
+    
+    // Ensure active tab is visible on mobile
+    if (tabsRef.current) {
+      const activeTabElement = tabsRef.current.querySelector(`[data-tab="${tabId}"]`);
+      if (activeTabElement) {
+        activeTabElement.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  };
+
+  const scrollLeft = () => {
+    if (tabsRef.current) {
+      tabsRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+      setTimeout(checkScrollability, 300);
+    }
+  };
+
+  const scrollRight = () => {
+    if (tabsRef.current) {
+      tabsRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      setTimeout(checkScrollability, 300);
+    }
+  };
+
+  React.useEffect(() => {
+    checkScrollability();
+    const handleResize = () => checkScrollability();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="dashboard-wrapper">
@@ -45,25 +102,45 @@ const ProfileTabs = () => {
       </div>
 
       <div className="dashboard-nav">
-        <div className="container">
-          <div className="dashboard-tabs">
-            {tabs.map(tab => (
-              <button
-                key={tab.id}
-                className={`dashboard-tab ${activeTab === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab.id)}
+        <div className="dashboard-tabs-container">
+            {hasOverflow && (
+              <button 
+                className={`dashboard-tab-nav dashboard-tab-nav-left ${!canScrollLeft ? 'disabled' : ''}`}
+                onClick={scrollLeft}
+                disabled={!canScrollLeft}
               >
-                {tab.label}
+                ‹
               </button>
-            ))}
-          </div>
+            )}
+            
+            <div className="dashboard-tabs" ref={tabsRef} onScroll={checkScrollability}>
+              {tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  className={`dashboard-tab ${activeTab === tab.id ? 'active' : ''}`}
+                  onClick={() => handleTabClick(tab.id)}
+                  data-tab={tab.id}
+                  aria-label={`Switch to ${tab.label} tab`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            
+            {hasOverflow && (
+              <button 
+                className={`dashboard-tab-nav dashboard-tab-nav-right ${!canScrollRight ? 'disabled' : ''}`}
+                onClick={scrollRight}
+                disabled={!canScrollRight}
+              >
+                ›
+              </button>
+            )}
         </div>
       </div>
 
       <div className="dashboard-content">
-        <div className="container">
-          {ActiveComponent && <ActiveComponent />}
-        </div>
+        {ActiveComponent && <ActiveComponent />}
       </div>
     </div>
   );

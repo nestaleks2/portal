@@ -130,12 +130,14 @@ const SubscriptionsTab = () => {
       <div className="subscription-section">
         <div className="section-header">
           <h3>Creator Subscriptions</h3>
-          <div className="subscription-filters">
+          <div className="subscription-filters subs-tab-filters">
             {['all', 'active', 'cancelled'].map(filterType => (
               <button
                 key={filterType}
-                className={`filter-btn ${filter === filterType ? 'active' : ''}`}
+                className={`filter-btn subs-filter-btn ${filter === filterType ? 'active' : ''}`}
                 onClick={() => setFilter(filterType)}
+                aria-pressed={filter === filterType}
+                aria-label={`Filter by ${filterType} subscriptions`}
               >
                 {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
               </button>
@@ -143,12 +145,12 @@ const SubscriptionsTab = () => {
           </div>
         </div>
 
-        <div className="subscriptions-list">
+        <div className="subscriptions-list subs-list">
           {filteredSubscriptions.map(sub => (
-            <div key={sub.id} className="subscription-card">
-              <div className="subscription-creator">
-                <img src={sub.avatar} alt={sub.creator} className="creator-avatar" />
-                <div className="creator-info">
+            <div key={sub.id} className="subscription-card subs-card">
+              <div className="subscription-creator subs-creator">
+                <img src={sub.avatar} alt={sub.creator} className="creator-avatar subs-avatar" />
+                <div className="creator-info subs-creator-info">
                   <h4>{sub.creator}</h4>
                   <p>Subscribed {sub.subscribed}</p>
                 </div>

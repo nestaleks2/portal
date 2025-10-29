@@ -5,9 +5,7 @@ import '../styles/pages/Dashboard.css';
 const DashboardViewer = () => {
   return (
     <div className="dashboard">
-      <div className="container">
-        <ViewerProfileTabs />
-      </div>
+      <ViewerProfileTabs />
     </div>
   );
 };

@@ -126,19 +126,20 @@ const SecurityTab = () => {
       </div>
 
       <div className="security-sections">
-        <div className="security-section">
+        <div className="security-section sec-password-section">
           <h3>Password</h3>
-          <form onSubmit={handlePasswordSubmit}>
-            <div className="form-group">
-              <label htmlFor="currentPassword">Current Password</label>
+          <form onSubmit={handlePasswordSubmit} className="security-form">
+            <div className="form-group security-form-group">
+              <label htmlFor="currentPassword" className="security-label">Current Password</label>
               <input
                 type="password"
                 id="currentPassword"
                 name="currentPassword"
                 value={passwordData.currentPassword}
                 onChange={handlePasswordChange}
-                className="form-input"
+                className="form-input security-input"
                 required
+                aria-describedby="current-password-desc"
               />
             </div>
 
