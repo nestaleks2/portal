@@ -88,21 +88,21 @@ const PremiumSubscription = () => {
 
         <section className="about-stats premium-stats">
           <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-number">50K+</div>
-              <div className="stat-label">Active Users</div>
+            <div className="premium-stat-item">
+              <div className="premium-stat-number">50K+</div>
+              <div className="premium-stat-label">Active Users</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-number">1000+</div>
-              <div className="stat-label">Premium Creators</div>
+            <div className="premium-stat-item">
+              <div className="premium-stat-number">1000+</div>
+              <div className="premium-stat-label">Premium Creators</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-number">10K+</div>
-              <div className="stat-label">Exclusive Posts</div>
+            <div className="premium-stat-item">
+              <div className="premium-stat-number">10K+</div>
+              <div className="premium-stat-label">Exclusive Posts</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-number">4.8★</div>
-              <div className="stat-label">User Rating</div>
+            <div className="premium-stat-item">
+              <div className="premium-stat-number">4.8★</div>
+              <div className="premium-stat-label">User Rating</div>
             </div>
           </div>
         </section>

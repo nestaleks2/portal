@@ -85,9 +85,9 @@ const About = () => {
         <section className="about-stats">
           <div className="stats-grid">
             {stats.map((stat, index) => (
-              <div key={index} className="stat-item">
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
+              <div key={index} className="premium-stat-item">
+                <div className="premium-stat-number">{stat.number}</div>
+                <div className="premium-stat-label">{stat.label}</div>
               </div>
             ))}
           </div>

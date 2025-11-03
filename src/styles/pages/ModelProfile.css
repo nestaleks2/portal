@@ -243,7 +243,7 @@
 }
 
 .model-profile-new .tab-count {
-    background: var(--color-primary);
+    background: var(--bg-light);
     color: white;
     padding: 0.25rem 0.5rem;
     border-radius: 0;

@@ -110,27 +110,6 @@ const OverviewTab = () => {
         </div>
       </div>
 
-      <div className="actions-section">
-        <h3>Quick Actions</h3>
-        <div className="quick-actions overview-quick-actions">
-          <button className="action-btn primary" aria-label="Upload new content">
-            <span className="action-icon">📷</span>
-            <span className="action-text">Upload Content</span>
-          </button>
-          <button className="action-btn secondary" aria-label="View performance analytics">
-            <span className="action-icon">📊</span>
-            <span className="action-text">View Analytics</span>
-          </button>
-          <button className="action-btn secondary" aria-label="Check messages">
-            <span className="action-icon">💬</span>
-            <span className="action-text">Check Messages</span>
-          </button>
-          <button className="action-btn secondary" aria-label="Update profile settings">
-            <span className="action-icon">⚙️</span>
-            <span className="action-text">Update Profile</span>
-          </button>
-        </div>
-      </div>
 
       <div className="chart-section">
         <h3>Performance Chart</h3>

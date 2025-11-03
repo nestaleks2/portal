@@ -66,18 +66,18 @@
     text-align: center;
 }
 
-.stat-item {
+.premium-stat-item {
     padding: 2rem 1rem;
 }
 
-.stat-number {
+.premium-stat-number {
     font-size: 3rem;
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 0.5rem;
 }
 
-.stat-label {
+.premium-stat-label {
     font-size: 1.1rem;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -582,7 +582,7 @@
         grid-template-columns: 1fr;
     }
     
-    .stat-number {
+    .premium-stat-number {
         font-size: 2.5rem;
     }
     

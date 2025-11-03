@@ -322,12 +322,6 @@ const Messages = () => {
                   </div>
                   
                   <div className="header-actions">
-                    <button className="action-btn" title="Video call">
-                      <span>📹</span>
-                    </button>
-                    <button className="action-btn" title="Voice call">
-                      <span>📞</span>
-                    </button>
                     <button className="action-btn" title="More options">
                       <span>⋯</span>
                     </button>

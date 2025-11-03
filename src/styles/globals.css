@@ -34,6 +34,14 @@
     --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
     --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    /*Action Colors*/
+    --color-success: #22bb33;
+    --color-success-dark: #168f24;
+    --color-warning: #ffd966;
+    --color-warning-dark: #f0ad4e;
+    --color-denied: #ec262a;
+    --color-denied-dark: #bb2124;
 }
 
 * {
@@ -73,7 +81,7 @@ body {
 .btn {
     padding: 12px 24px;
     border: none;
-    border-radius: 0;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 14px;
@@ -100,6 +108,55 @@ body {
 .btn-secondary:hover {
     background: var(--color-secondary);
     color: var(--text-primary);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+    border: 1px solid #ffc107;
+    cursor: pointer;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+    border-color: #d39e00;
+    transform: translateY(-1px);
+}
+
+.btn-link {
+    background: transparent;
+    color: var(--color-primary);
+    border: none;
+    text-decoration: underline;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    color: var(--color-secondary);
+    text-decoration: none;
+    background: transparent;
+    transform: none;
+}
+
+/* Small button variant */
+.btn.small {
+    padding: 8px 16px;
+    font-size: 12px;
 }
 
 /* Universal Page Header */

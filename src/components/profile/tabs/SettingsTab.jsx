@@ -7,6 +7,7 @@ const SettingsTab = () => {
     username: 'anna_petrova',
     bio: 'Professional model with experience in fashion and commercial shoots.',
     location: 'New York, NY',
+    country: 'US',
     website: 'https://anapetrova.com',
     phone: '+1 (555) 123-4567',
     birthdate: '1995-03-15',
@@ -18,7 +19,10 @@ const SettingsTab = () => {
     emailNotifications: true,
     pushNotifications: true,
     marketingEmails: false,
-    weeklyReports: true
+    weeklyReports: true,
+    gender: 'female',
+    profession: 'model',
+    notificationFrequency: 'immediate'
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -55,6 +59,18 @@ const SettingsTab = () => {
         <h2>Profile Settings</h2>
         <p>Manage your profile information and preferences</p>
       </div>
+
+      {!isEditing && (
+        <div className="settings-actions">
+          <button 
+            className="btn-primary"
+            onClick={() => setIsEditing(true)}
+          >
+            <span className="btn-icon">✏️</span>
+            Edit Profile
+          </button>
+        </div>
+      )}
 
       <div className="settings-sections">
         <div className="settings-section">
@@ -100,8 +116,8 @@ const SettingsTab = () => {
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="username" className="settings-label">Username</label>
               <input
                 type="text"
                 id="username"
@@ -109,12 +125,12 @@ const SettingsTab = () => {
                 value={formData.username}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="email" className="settings-label">Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -122,12 +138,12 @@ const SettingsTab = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="phone" className="settings-label">Phone Number</label>
               <input
                 type="tel"
                 id="phone"
@@ -135,7 +151,7 @@ const SettingsTab = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
               />
             </div>
 
@@ -157,8 +173,48 @@ const SettingsTab = () => {
               </small>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="location">Location</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="country" className="settings-label">Country</label>
+              <select
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className="form-select settings-input"
+              >
+                <option value="">Select Country</option>
+                <option value="US">🇺🇸 United States</option>
+                <option value="CA">🇨🇦 Canada</option>
+                <option value="GB">🇬🇧 United Kingdom</option>
+                <option value="FR">🇫🇷 France</option>
+                <option value="DE">🇩🇪 Germany</option>
+                <option value="IT">🇮🇹 Italy</option>
+                <option value="ES">🇪🇸 Spain</option>
+                <option value="NL">🇳🇱 Netherlands</option>
+                <option value="SE">🇸🇪 Sweden</option>
+                <option value="NO">🇳🇴 Norway</option>
+                <option value="DK">🇩🇰 Denmark</option>
+                <option value="FI">🇫🇮 Finland</option>
+                <option value="AU">🇦🇺 Australia</option>
+                <option value="NZ">🇳🇿 New Zealand</option>
+                <option value="JP">🇯🇵 Japan</option>
+                <option value="KR">🇰🇷 South Korea</option>
+                <option value="CN">🇨🇳 China</option>
+                <option value="SG">🇸🇬 Singapore</option>
+                <option value="BR">🇧🇷 Brazil</option>
+                <option value="MX">🇲🇽 Mexico</option>
+                <option value="AR">🇦🇷 Argentina</option>
+                <option value="RU">🇷🇺 Russia</option>
+                <option value="IN">🇮🇳 India</option>
+                <option value="AE">🇦🇪 UAE</option>
+                <option value="SA">🇸🇦 Saudi Arabia</option>
+                <option value="ZA">🇿🇦 South Africa</option>
+              </select>
+            </div>
+
+            <div className="form-group settings-form-group">
+              <label htmlFor="location" className="settings-label">City/State</label>
               <input
                 type="text"
                 id="location"
@@ -166,12 +222,13 @@ const SettingsTab = () => {
                 value={formData.location}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
+                placeholder="e.g., New York, NY"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="website">Website</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="website" className="settings-label">Website</label>
               <input
                 type="url"
                 id="website"
@@ -179,12 +236,12 @@ const SettingsTab = () => {
                 value={formData.website}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="birthdate">Birth Date</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="birthdate" className="settings-label">Birth Date</label>
               <input
                 type="date"
                 id="birthdate"
@@ -192,44 +249,138 @@ const SettingsTab = () => {
                 value={formData.birthdate}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-input"
+                className="form-input settings-input"
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="language">Language</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="gender" className="settings-label">Gender</label>
+              <select
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className="form-select settings-input"
+              >
+                <option value="">Prefer not to say</option>
+                <option value="female">♀️ Female</option>
+                <option value="male">♂️ Male</option>
+                <option value="non-binary">🏳️‍⚧️ Non-binary</option>
+                <option value="other">🌈 Other</option>
+              </select>
+            </div>
+
+            <div className="form-group settings-form-group">
+              <label htmlFor="profession" className="settings-label">Profession</label>
+              <select
+                id="profession"
+                name="profession"
+                value={formData.profession}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className="form-select settings-input"
+              >
+                <option value="">Select profession</option>
+                <optgroup label="Creative Arts">
+                  <option value="model">📸 Model</option>
+                  <option value="photographer">📷 Photographer</option>
+                  <option value="artist">🎨 Artist</option>
+                  <option value="designer">✏️ Designer</option>
+                  <option value="influencer">📱 Influencer</option>
+                  <option value="content-creator">🎬 Content Creator</option>
+                  <option value="musician">🎵 Musician</option>
+                  <option value="dancer">💃 Dancer</option>
+                  <option value="actor">🎭 Actor</option>
+                </optgroup>
+                <optgroup label="Fitness & Wellness">
+                  <option value="fitness-trainer">💪 Fitness Trainer</option>
+                  <option value="yoga-instructor">🧘 Yoga Instructor</option>
+                  <option value="nutritionist">🥗 Nutritionist</option>
+                  <option value="wellness-coach">🌱 Wellness Coach</option>
+                </optgroup>
+                <optgroup label="Business & Professional">
+                  <option value="entrepreneur">💼 Entrepreneur</option>
+                  <option value="consultant">🎯 Consultant</option>
+                  <option value="coach">🏆 Coach</option>
+                  <option value="teacher">📚 Teacher</option>
+                  <option value="student">🎓 Student</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="other">🔧 Other</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div className="form-group settings-form-group">
+              <label htmlFor="language" className="settings-label">Language</label>
               <select
                 id="language"
                 name="language"
                 value={formData.language}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-select"
+                className="form-select settings-input"
               >
                 <option value="en">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-                <option value="it">Italian</option>
+                <option value="es">Español (Spanish)</option>
+                <option value="fr">Français (French)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="it">Italiano (Italian)</option>
+                <option value="pt">Português (Portuguese)</option>
+                <option value="ru">Русский (Russian)</option>
+                <option value="ja">日本語 (Japanese)</option>
+                <option value="ko">한국어 (Korean)</option>
+                <option value="zh">中文 (Chinese)</option>
+                <option value="ar">العربية (Arabic)</option>
+                <option value="nl">Nederlands (Dutch)</option>
+                <option value="sv">Svenska (Swedish)</option>
+                <option value="no">Norsk (Norwegian)</option>
+                <option value="da">Dansk (Danish)</option>
               </select>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="timezone">Timezone</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="timezone" className="settings-label">Timezone</label>
               <select
                 id="timezone"
                 name="timezone"
                 value={formData.timezone}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-select"
+                className="form-select settings-input"
               >
-                <option value="America/New_York">Eastern Time</option>
-                <option value="America/Chicago">Central Time</option>
-                <option value="America/Denver">Mountain Time</option>
-                <option value="America/Los_Angeles">Pacific Time</option>
-                <option value="Europe/London">London</option>
-                <option value="Europe/Paris">Paris</option>
+                <optgroup label="North America">
+                  <option value="America/New_York">Eastern Time (UTC-5/-4)</option>
+                  <option value="America/Chicago">Central Time (UTC-6/-5)</option>
+                  <option value="America/Denver">Mountain Time (UTC-7/-6)</option>
+                  <option value="America/Los_Angeles">Pacific Time (UTC-8/-7)</option>
+                  <option value="America/Vancouver">Vancouver (UTC-8/-7)</option>
+                  <option value="America/Toronto">Toronto (UTC-5/-4)</option>
+                </optgroup>
+                <optgroup label="Europe">
+                  <option value="Europe/London">London (UTC+0/+1)</option>
+                  <option value="Europe/Paris">Paris (UTC+1/+2)</option>
+                  <option value="Europe/Berlin">Berlin (UTC+1/+2)</option>
+                  <option value="Europe/Rome">Rome (UTC+1/+2)</option>
+                  <option value="Europe/Madrid">Madrid (UTC+1/+2)</option>
+                  <option value="Europe/Amsterdam">Amsterdam (UTC+1/+2)</option>
+                  <option value="Europe/Stockholm">Stockholm (UTC+1/+2)</option>
+                  <option value="Europe/Moscow">Moscow (UTC+3)</option>
+                </optgroup>
+                <optgroup label="Asia Pacific">
+                  <option value="Asia/Tokyo">Tokyo (UTC+9)</option>
+                  <option value="Asia/Seoul">Seoul (UTC+9)</option>
+                  <option value="Asia/Shanghai">Shanghai (UTC+8)</option>
+                  <option value="Asia/Hong_Kong">Hong Kong (UTC+8)</option>
+                  <option value="Asia/Singapore">Singapore (UTC+8)</option>
+                  <option value="Asia/Dubai">Dubai (UTC+4)</option>
+                  <option value="Australia/Sydney">Sydney (UTC+10/+11)</option>
+                  <option value="Australia/Melbourne">Melbourne (UTC+10/+11)</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="UTC">UTC (Coordinated Universal Time)</option>
+                </optgroup>
               </select>
             </div>
           </div>
@@ -237,53 +388,61 @@ const SettingsTab = () => {
 
         <div className="settings-section">
           <h3>Privacy Settings</h3>
-          <div className="form-grid">
-            <div className="form-group">
-              <label htmlFor="profileVisibility">Profile Visibility</label>
+          <div className="form-grid settings-form-grid">
+            <div className="form-group settings-form-group">
+              <label htmlFor="profileVisibility" className="settings-label">Profile Visibility</label>
               <select
                 id="profileVisibility"
                 name="profileVisibility"
                 value={formData.profileVisibility}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-select"
+                className="form-select settings-input"
               >
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-                <option value="subscribers">Subscribers Only</option>
+                <option value="public">🌍 Public - Anyone can view</option>
+                <option value="registered">👥 Registered Users Only</option>
+                <option value="followers">👤 Followers Only</option>
+                <option value="subscribers">⭐ Subscribers Only</option>
+                <option value="private">🔒 Private - Nobody can view</option>
               </select>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="contentVisibility">Content Visibility</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="contentVisibility" className="settings-label">Content Visibility</label>
               <select
                 id="contentVisibility"
                 name="contentVisibility"
                 value={formData.contentVisibility}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-select"
+                className="form-select settings-input"
               >
-                <option value="public">Public</option>
-                <option value="subscribers">Subscribers Only</option>
-                <option value="premium">Premium Subscribers Only</option>
+                <option value="public">🌍 Public - Free for everyone</option>
+                <option value="preview">👀 Preview Only - Teasers visible</option>
+                <option value="followers">👤 Followers Only</option>
+                <option value="subscribers">⭐ Subscribers Only</option>
+                <option value="premium">💎 Premium Subscribers Only</option>
+                <option value="private">🔒 Private - Nobody can view</option>
               </select>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="allowMessages">Allow Messages From</label>
+            <div className="form-group settings-form-group">
+              <label htmlFor="allowMessages" className="settings-label">Allow Messages From</label>
               <select
                 id="allowMessages"
                 name="allowMessages"
                 value={formData.allowMessages}
                 onChange={handleInputChange}
                 disabled={!isEditing}
-                className="form-select"
+                className="form-select settings-input"
               >
-                <option value="all">Everyone</option>
-                <option value="followers">Followers Only</option>
-                <option value="subscribers">Subscribers Only</option>
-                <option value="none">No One</option>
+                <option value="all">💬 Everyone</option>
+                <option value="verified">✅ Verified Users Only</option>
+                <option value="followers">👤 Followers Only</option>
+                <option value="mutual">🤝 Mutual Followers</option>
+                <option value="subscribers">⭐ Subscribers Only</option>
+                <option value="premium">💎 Premium Subscribers Only</option>
+                <option value="none">🚫 No One</option>
               </select>
             </div>
           </div>
@@ -308,7 +467,7 @@ const SettingsTab = () => {
               </span>
             </label>
 
-            <label className="checkbox-container">
+            <label className="checkbox-container settings-checkbox-container">
               <input
                 type="checkbox"
                 name="pushNotifications"
@@ -316,12 +475,12 @@ const SettingsTab = () => {
                 onChange={handleInputChange}
                 disabled={!isEditing}
               />
-              <span className="checkmark"></span>
-              Push Notifications
+              <span className="checkmark settings-checkmark"></span>
+              <span className="checkbox-label">Push Notifications</span>
               <span className="checkbox-description">Receive push notifications on your devices</span>
             </label>
 
-            <label className="checkbox-container">
+            <label className="checkbox-container settings-checkbox-container">
               <input
                 type="checkbox"
                 name="marketingEmails"
@@ -329,12 +488,12 @@ const SettingsTab = () => {
                 onChange={handleInputChange}
                 disabled={!isEditing}
               />
-              <span className="checkmark"></span>
-              Marketing Emails
+              <span className="checkmark settings-checkmark"></span>
+              <span className="checkbox-label">Marketing Emails</span>
               <span className="checkbox-description">Receive promotional emails and updates</span>
             </label>
 
-            <label className="checkbox-container">
+            <label className="checkbox-container settings-checkbox-container">
               <input
                 type="checkbox"
                 name="weeklyReports"
@@ -342,43 +501,54 @@ const SettingsTab = () => {
                 onChange={handleInputChange}
                 disabled={!isEditing}
               />
-              <span className="checkmark"></span>
-              Weekly Reports
+              <span className="checkmark settings-checkmark"></span>
+              <span className="checkbox-label">Weekly Reports</span>
               <span className="checkbox-description">Receive weekly performance reports</span>
             </label>
+          </div>
+
+          <div className="form-group settings-form-group">
+            <label htmlFor="notificationFrequency" className="settings-label">Notification Frequency</label>
+            <select
+              id="notificationFrequency"
+              name="notificationFrequency"
+              value={formData.notificationFrequency}
+              onChange={handleInputChange}
+              disabled={!isEditing}
+              className="form-select settings-input"
+            >
+              <option value="immediate">⚡ Immediate - Real-time notifications</option>
+              <option value="hourly">⏰ Hourly - Bundled every hour</option>
+              <option value="daily">📅 Daily - Once per day summary</option>
+              <option value="weekly">📊 Weekly - Weekly digest only</option>
+              <option value="never">🔕 Never - No notifications</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <div className="settings-actions">
-        {!isEditing ? (
+      {isEditing && (
+        <div className="edit-actions">
           <button 
-            className="btn-primary"
-            onClick={() => setIsEditing(true)}
+            className="btn-secondary"
+            onClick={() => {
+              setIsEditing(false);
+              // Reset form data to original values
+            }}
           >
-            Edit Profile
+            <span className="btn-icon">✕</span>
+            Cancel
           </button>
-        ) : (
-          <div className="edit-actions">
-            <button 
-              className="btn-secondary"
-              onClick={() => {
-                setIsEditing(false);
-                // Reset form data to original values
-              }}
-            >
-              Cancel
-            </button>
-            <button 
-              className={`btn-primary ${isSaving ? 'loading' : ''}`}
-              onClick={handleSave}
-              disabled={isSaving}
-            >
-              {isSaving ? 'Saving...' : 'Save Changes'}
-            </button>
-          </div>
-        )}
-      </div>
+          <button 
+            className={`btn-primary ${isSaving ? 'loading' : ''}`}
+            onClick={handleSave}
+            disabled={isSaving}
+          >
+            <span className="btn-icon">{isSaving ? '⏳' : '💾'}</span>
+            {isSaving ? 'Saving...' : 'Save Changes'}
+          </button>
+        </div>
+      )}
 
       <div className="danger-zone">
         <h3>Danger Zone</h3>

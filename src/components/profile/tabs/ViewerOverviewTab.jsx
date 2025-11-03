@@ -100,20 +100,6 @@ const ViewerOverviewTab = () => {
         </div>
       </div>
 
-      <div className="quick-actions">
-        <button className="action-btn primary">
-          <span>🔍</span>
-          Discover New Creators
-        </button>
-        <button className="action-btn secondary">
-          <span>⭐</span>
-          View Favorites
-        </button>
-        <button className="action-btn secondary">
-          <span>💎</span>
-          Manage Subscriptions
-        </button>
-      </div>
     </div>
   );
 };

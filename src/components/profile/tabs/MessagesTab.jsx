@@ -162,8 +162,6 @@ const MessagesTab = () => {
                   </div>
                 </div>
                 <div className="chat-actions">
-                  <button className="action-btn secondary">📞 Call</button>
-                  <button className="action-btn secondary">🎥 Video</button>
                   <button className="action-btn secondary">⚙️ Settings</button>
                 </div>
               </div>
