@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import instagramIcon from '../../../img/icons/instagram.svg';
+import facebookIcon from '../../../img/icons/facebook.svg';
+import xIcon from '../../../img/icons/x.svg';
+import youtubeIcon from '../../../img/icons/youtube.svg';
+import tiktokIcon from '../../../img/icons/tiktok.svg';
+import telegramIcon from '../../../img/icons/telegram.svg';
+import onlyfansIcon from '../../../img/icons/onlyfans.svg';
+import fanvueIcon from '../../../img/icons/fanvue.png';
+import linkmeIcon from '../../../img/icons/linkme.png';
+import websiteIcon from '../../../img/icons/website.svg';
 
 const SettingsTab = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +32,24 @@ const SettingsTab = () => {
     weeklyReports: true,
     gender: 'female',
     profession: 'model',
-    notificationFrequency: 'immediate'
+    notificationFrequency: 'immediate',
+    // Model Profile Page Settings
+    stageName: 'Sky',
+    modelBio: 'Welcome to my exclusive content! Professional model with years of experience in fashion and commercial photography.',
+    bannerImage: '',
+    avatarImage: '',
+    social: {
+      instagram: 'https://www.instagram.com/anna_petrova/',
+      facebook: '',
+      x: 'https://x.com/anna_petrova',
+      youtube: 'http://www.youtube.com/@anna_petrova',
+      tiktok: '',
+      telegram: '',
+      website: 'https://anapetrova.com',
+      onlyfans: '',
+      fanvue: '',
+      linkme: ''
+    }
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -33,6 +60,16 @@ const SettingsTab = () => {
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSocialChange = (platform, value) => {
+    setFormData(prev => ({
+      ...prev,
+      social: {
+        ...prev.social,
+        [platform]: value
+      }
     }));
   };
 
@@ -50,6 +87,23 @@ const SettingsTab = () => {
     const file = e.target.files[0];
     if (file) {
       alert(`Avatar upload: ${file.name} (demo)`);
+      // Here you would typically upload the file and update formData.avatarImage
+    }
+  };
+
+  const handleBannerChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      alert(`Banner upload: ${file.name} (demo)`);
+      // Here you would typically upload the file and update formData.bannerImage
+    }
+  };
+
+  const handleModelAvatarChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      alert(`Model Avatar upload: ${file.name} (demo)`);
+      // Here you would typically upload the file and update formData.avatarImage
     }
   };
 
@@ -523,6 +577,301 @@ const SettingsTab = () => {
               <option value="weekly">📊 Weekly - Weekly digest only</option>
               <option value="never">🔕 Never - No notifications</option>
             </select>
+          </div>
+        </div>
+
+        {/* Model Profile Page Settings */}
+        <div className="settings-section">
+          <h3>Model Profile Page Settings</h3>
+          <p className="section-description">Customize how your model profile appears to visitors</p>
+
+          {/* Stage Name */}
+          <div className="form-grid settings-form-grid">
+            <div className="form-group settings-form-group">
+              <label htmlFor="stageName" className="settings-label">Stage Name</label>
+              <input
+                type="text"
+                id="stageName"
+                name="stageName"
+                value={formData.stageName}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="Your professional stage name"
+              />
+              <small className="form-description">
+                This name will appear in quotes on your profile page
+              </small>
+            </div>
+
+            <div className="form-group settings-form-group full-width">
+              <label htmlFor="modelBio" className="settings-label">Model Profile Bio</label>
+              <textarea
+                id="modelBio"
+                name="modelBio"
+                value={formData.modelBio}
+                onChange={handleInputChange}
+                disabled={!isEditing}
+                className="form-textarea settings-textarea"
+                rows="4"
+                placeholder="Write a compelling bio for your model profile page..."
+              />
+              <small className="form-description">
+                This bio will be displayed on your public model profile page
+              </small>
+            </div>
+          </div>
+
+          {/* Profile Images */}
+          <div className="profile-images-section">
+            <h4>Profile Images</h4>
+            
+            {/* Model Avatar */}
+            <div className="image-upload-group">
+              <label className="settings-label">Model Profile Avatar</label>
+              <div className="image-upload-container">
+                <div className="current-image">
+                  <img 
+                    src={formData.avatarImage || "https://images.unsplash.com/photo-1494790108755-2616c9ef2fe8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"} 
+                    alt="Model Avatar" 
+                    className="preview-image avatar-preview"
+                  />
+                </div>
+                <div className="image-controls">
+                  <input 
+                    type="file" 
+                    id="model-avatar-upload" 
+                    accept="image/*" 
+                    onChange={handleModelAvatarChange}
+                    disabled={!isEditing}
+                    style={{ display: 'none' }}
+                  />
+                  <label htmlFor="model-avatar-upload" className={`btn-secondary ${!isEditing ? 'disabled' : ''}`}>
+                    Change Avatar
+                  </label>
+                  <small className="form-description">
+                    Square image recommended (300x300px minimum)
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            {/* Banner Image */}
+            <div className="image-upload-group">
+              <label className="settings-label">Profile Banner Background</label>
+              <div className="image-upload-container">
+                <div className="current-image banner-preview">
+                  <img 
+                    src={formData.bannerImage || "https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"} 
+                    alt="Banner Background" 
+                    className="preview-image"
+                  />
+                  <div className="banner-overlay-preview"></div>
+                </div>
+                <div className="image-controls">
+                  <input 
+                    type="file" 
+                    id="banner-upload" 
+                    accept="image/*" 
+                    onChange={handleBannerChange}
+                    disabled={!isEditing}
+                    style={{ display: 'none' }}
+                  />
+                  <label htmlFor="banner-upload" className={`btn-secondary ${!isEditing ? 'disabled' : ''}`}>
+                    Change Banner
+                  </label>
+                  <small className="form-description">
+                    Wide image recommended (1200x400px minimum). A dark overlay will be applied.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="settings-section">
+          <h3>Social Media Links</h3>
+          <p className="section-description">Manage your social media presence on your profile</p>
+          
+          <div className="social-links-grid">
+            <div className="social-input-group">
+              <label htmlFor="social-instagram" className="settings-label">
+                <img src={instagramIcon} alt="" className="social-icon-label" />
+                Instagram
+              </label>
+              <input
+                type="url"
+                id="social-instagram"
+                value={formData.social.instagram}
+                onChange={(e) => handleSocialChange('instagram', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://www.instagram.com/yourusername/"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-x" className="settings-label">
+                <img src={xIcon} alt="" className="social-icon-label" />
+                X (Twitter)
+              </label>
+              <input
+                type="url"
+                id="social-x"
+                value={formData.social.x}
+                onChange={(e) => handleSocialChange('x', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://x.com/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-youtube" className="settings-label">
+                <img src={youtubeIcon} alt="" className="social-icon-label" />
+                YouTube
+              </label>
+              <input
+                type="url"
+                id="social-youtube"
+                value={formData.social.youtube}
+                onChange={(e) => handleSocialChange('youtube', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://www.youtube.com/@yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-tiktok" className="settings-label">
+                <img src={tiktokIcon} alt="" className="social-icon-label" />
+                TikTok
+              </label>
+              <input
+                type="url"
+                id="social-tiktok"
+                value={formData.social.tiktok}
+                onChange={(e) => handleSocialChange('tiktok', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://www.tiktok.com/@yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-telegram" className="settings-label">
+                <img src={telegramIcon} alt="" className="social-icon-label" />
+                Telegram
+              </label>
+              <input
+                type="url"
+                id="social-telegram"
+                value={formData.social.telegram}
+                onChange={(e) => handleSocialChange('telegram', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://t.me/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-facebook" className="settings-label">
+                <img src={facebookIcon} alt="" className="social-icon-label" />
+                Facebook
+              </label>
+              <input
+                type="url"
+                id="social-facebook"
+                value={formData.social.facebook}
+                onChange={(e) => handleSocialChange('facebook', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://www.facebook.com/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-onlyfans" className="settings-label">
+                <img src={onlyfansIcon} alt="" className="social-icon-label" />
+                OnlyFans
+              </label>
+              <input
+                type="url"
+                id="social-onlyfans"
+                value={formData.social.onlyfans}
+                onChange={(e) => handleSocialChange('onlyfans', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://onlyfans.com/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-fanvue" className="settings-label">
+                <img src={fanvueIcon} alt="" className="social-icon-label" />
+                FanVue
+              </label>
+              <input
+                type="url"
+                id="social-fanvue"
+                value={formData.social.fanvue}
+                onChange={(e) => handleSocialChange('fanvue', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://www.fanvue.com/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-linkme" className="settings-label">
+                <img src={linkmeIcon} alt="" className="social-icon-label" />
+                LinkMe
+              </label>
+              <input
+                type="url"
+                id="social-linkme"
+                value={formData.social.linkme}
+                onChange={(e) => handleSocialChange('linkme', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://link.me/yourusername"
+              />
+            </div>
+
+            <div className="social-input-group">
+              <label htmlFor="social-website" className="settings-label">
+                <img src={websiteIcon} alt="" className="social-icon-label" />
+                Personal Website
+              </label>
+              <input
+                type="url"
+                id="social-website"
+                value={formData.social.website}
+                onChange={(e) => handleSocialChange('website', e.target.value)}
+                disabled={!isEditing}
+                className="form-input settings-input"
+                placeholder="https://yourwebsite.com"
+              />
+            </div>
+          </div>
+
+          <div className="social-preview">
+            <h4>Preview</h4>
+            <p className="section-description">This is how your social links will appear on your profile:</p>
+            <div className="social-links-preview">
+              {Object.entries(formData.social).map(([platform, url]) => (
+                url && (
+                  <div key={platform} className="social-link-preview">
+                    <span className="social-platform">{platform}</span>
+                    <span className="social-url">{url}</span>
+                  </div>
+                )
+              ))}
+              {Object.values(formData.social).every(url => !url) && (
+                <p className="no-social-links">No social links added yet</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
