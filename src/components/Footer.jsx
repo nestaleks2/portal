@@ -4,13 +4,13 @@ import '../styles/components/Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section">
+    <footer className="footer__root">
+      <div className="footer__content">
+        <div className="footer__section">
           <h3>MODELS</h3>
           <p>Professional platform for models</p>
         </div>
-        <div className="footer-section">
+        <div className="footer__section">
           <h4>Navigation</h4>
           <ul>
             <li><Link to="/">Home</Link></li>
@@ -21,13 +21,13 @@ const Footer = () => {
             <li><Link to="/support">Support</Link></li>
           </ul>
         </div>
-        <div className="footer-section">
+        <div className="footer__section">
           <h4>Contact</h4>
           <p>Email: info@models.com</p>
           <p>Phone: +7 (555) 123-45-67</p>
         </div>
       </div>
-      <div className="footer-bottom">
+      <div className="footer__bottom">
         <p>&copy; 2024 Models Portal. All rights reserved.</p>
       </div>
     </footer>

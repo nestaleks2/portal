@@ -1,0 +1,139 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - generic [ref=e7]:
+        - link "X-Models" [ref=e9] [cursor=pointer]:
+          - /url: /portal
+          - img "X-Models" [ref=e10]
+        - button "Toggle mobile menu" [ref=e11] [cursor=pointer]
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - link "X-Models" [ref=e18] [cursor=pointer]:
+          - /url: /portal
+          - img "X-Models" [ref=e19]
+        - button "Close mobile menu" [ref=e20] [cursor=pointer]: ×
+      - generic [ref=e21]:
+        - heading "Navigation" [level=3] [ref=e22]
+        - navigation [ref=e23]:
+          - link "🏠 Home" [ref=e24] [cursor=pointer]:
+            - /url: /portal
+            - generic [ref=e25]: 🏠
+            - text: Home
+          - link "👥 Models" [ref=e26] [cursor=pointer]:
+            - /url: /portal/models
+            - generic [ref=e27]: 👥
+            - text: Models
+          - link "⭐ Subscriptions" [ref=e28] [cursor=pointer]:
+            - /url: /portal/subscriptions
+            - generic [ref=e29]: ⭐
+            - text: Subscriptions
+          - link "💬 Messages" [ref=e30] [cursor=pointer]:
+            - /url: /portal/messages
+            - generic [ref=e31]: 💬
+            - text: Messages
+      - generic [ref=e32]:
+        - heading "Account" [level=3] [ref=e33]
+        - generic [ref=e34]:
+          - button "Sign In" [ref=e35] [cursor=pointer]
+          - button "Sign Up" [ref=e36] [cursor=pointer]
+      - generic [ref=e37]:
+        - heading "Dashboard" [level=3] [ref=e38]
+        - generic [ref=e39]:
+          - button "Creator Dashboard" [ref=e40] [cursor=pointer]
+          - button "Viewer Dashboard" [ref=e41] [cursor=pointer]
+  - main [ref=e42]:
+    - generic [ref=e45]:
+      - heading "Slide 1" [level=1] [ref=e48]
+      - heading "Slide 2" [level=1] [ref=e51]
+      - heading "Slide 3" [level=1] [ref=e54]
+      - heading "Slide 4" [level=1] [ref=e57]
+    - generic [ref=e64]:
+      - generic [ref=e65] [cursor=pointer]:
+        - img "Premium Subscription" [ref=e66]
+        - generic [ref=e67]:
+          - heading "Premium Subscription" [level=3] [ref=e68]
+          - paragraph [ref=e69]: Unlock exclusive features and boost your career
+      - generic [ref=e70] [cursor=pointer]:
+        - img "How to become a Creator" [ref=e71]
+        - generic [ref=e72]:
+          - heading "How to become a Creator" [level=3] [ref=e73]
+          - paragraph [ref=e74]: Start your modeling journey with our step-by-step guide
+    - heading "Discover our Models" [level=2] [ref=e76]
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - generic [ref=e79] [cursor=pointer]:
+          - img "Ethan" [ref=e80]
+          - generic [ref=e81]:
+            - heading "Ethan" [level=3] [ref=e82]
+            - paragraph [ref=e83]: USA, 29 years old
+        - generic [ref=e84] [cursor=pointer]:
+          - img "Lucia" [ref=e85]
+          - generic [ref=e86]:
+            - heading "Lucia" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Spain, 28 years old
+        - generic [ref=e89] [cursor=pointer]:
+          - img "Ling" [ref=e90]
+          - generic [ref=e91]:
+            - heading "Ling" [level=3] [ref=e92]
+            - paragraph [ref=e93]: China, 24 years old
+        - generic [ref=e94] [cursor=pointer]:
+          - img "Hana" [ref=e95]
+          - generic [ref=e96]:
+            - heading "Hana" [level=3] [ref=e97]
+            - paragraph [ref=e98]: South Korea, 21 years old
+        - generic [ref=e99] [cursor=pointer]:
+          - img "Mia" [ref=e100]
+          - generic [ref=e101]:
+            - heading "Mia" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Australia, 24 years old
+        - generic [ref=e104] [cursor=pointer]:
+          - img "Rosa" [ref=e105]
+          - generic [ref=e106]:
+            - heading "Rosa" [level=3] [ref=e107]
+            - paragraph [ref=e108]: Mexico, 27 years old
+        - generic [ref=e109] [cursor=pointer]:
+          - img "Marco" [ref=e110]
+          - generic [ref=e111]:
+            - heading "Marco" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Italy, 31 years old
+        - generic [ref=e114] [cursor=pointer]:
+          - img "Gabriela" [ref=e115]
+          - generic [ref=e116]:
+            - heading "Gabriela" [level=3] [ref=e117]
+            - paragraph [ref=e118]: USA, 23 years old
+      - button "See More" [ref=e120] [cursor=pointer]
+  - contentinfo [ref=e121]:
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - heading "MODELS" [level=3] [ref=e124]
+        - paragraph [ref=e125]: Professional platform for models
+      - generic [ref=e126]:
+        - heading "Navigation" [level=4] [ref=e127]
+        - list [ref=e128]:
+          - listitem [ref=e129]:
+            - link "Home" [ref=e130] [cursor=pointer]:
+              - /url: /portal
+          - listitem [ref=e131]:
+            - link "Models" [ref=e132] [cursor=pointer]:
+              - /url: /portal/models
+          - listitem [ref=e133]:
+            - link "Subscriptions" [ref=e134] [cursor=pointer]:
+              - /url: /portal/subscriptions
+          - listitem [ref=e135]:
+            - link "Messages" [ref=e136] [cursor=pointer]:
+              - /url: /portal/messages
+          - listitem [ref=e137]:
+            - link "About" [ref=e138] [cursor=pointer]:
+              - /url: /portal/about
+          - listitem [ref=e139]:
+            - link "Support" [ref=e140] [cursor=pointer]:
+              - /url: /portal/support
+      - generic [ref=e141]:
+        - heading "Contact" [level=4] [ref=e142]
+        - paragraph [ref=e143]: "Email: info@models.com"
+        - paragraph [ref=e144]: "Phone: +7 (555) 123-45-67"
+    - paragraph [ref=e146]: © 2024 Models Portal. All rights reserved.
+```

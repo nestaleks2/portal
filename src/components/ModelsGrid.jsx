@@ -116,7 +116,7 @@ const ModelsGrid = ({ limitRows = true }) => {
   };
 
   return (
-    <section className="models-section">
+    <section className="models-grid__section">
       {!limitRows && (
         <ModelsFilter 
           models={modelsData} 
@@ -124,26 +124,26 @@ const ModelsGrid = ({ limitRows = true }) => {
         />
       )}
       
-      <div className="models-grid">
+      <div className="models-grid__container">
         {finalDisplayModels.map((model) => (
           <div
             key={model.id}
-            className={`model-tile ${model.layoutSize}`}
+            className={`models-grid__tile ${model.layoutSize ? `models-grid__tile--${model.layoutSize}` : ''}`}
             onClick={() => handleModelClick(model.id)}
           >
-            <img src={model.avatar} alt={model.name} />
-            <div className="model-overlay">
-              <h3>{model.name}</h3>
-              <p>{model.country}, {model.age} years old</p>
+            <img src={model.avatar} alt={model.name} className="models-grid__tile-image" />
+            <div className="models-grid__overlay">
+              <h3 className="models-grid__overlay-title">{model.name}</h3>
+              <p className="models-grid__overlay-description">{model.country}, {model.age} years old</p>
             </div>
           </div>
         ))}
       </div>
       
       {limitRows && modelsData.length > calculateModelsForCompleteRows(screenSize) && (
-        <div className="see-more-section">
+        <div className="models-grid__see-more-section">
           <button 
-            className="see-more-btn"
+            className="models-grid__see-more-btn"
             onClick={() => navigate('/models')}
           >
             See More

@@ -1,4 +1,95 @@
-/* Become Creator Page Styles */
+/* ==========================================
+   BECOME CREATOR PAGE STYLES
+   Prefix: .become-creator__
+   ========================================== */
+
+.become-creator__page {
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+.become-creator__hero {
+    background: var(--gradient-primary);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.become-creator__hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.become-creator__hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+.become-creator__hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #fff, rgba(255, 255, 255, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.become-creator__hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.become-creator__hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.become-creator__feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+.become-creator__feature-icon {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.become-creator__cta-button {
+    padding: 1.2rem 3rem;
+    background: white;
+    color: var(--color-primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: var(--shadow-medium);
+}
+
+.become-creator__cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-dark);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Legacy class names for backward compatibility */
 .become-creator-page {
     min-height: 100vh;
     color: var(--text-primary);
@@ -649,5 +740,72 @@
     .story-stats {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* ==========================================
+   MEDIA QUERIES (All at bottom)
+   ========================================== */
+
+@media (max-width: 768px) {
+    .become-creator__hero,
+    .creator-hero {
+        padding: 80px 0;
+    }
+    
+    .become-creator__hero-features,
+    .hero-features {
+        gap: 2rem;
+    }
+    
+    .become-creator__hero-title,
+    .creator-hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+    
+    .become-creator__hero-description,
+    .creator-hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .become-creator__cta-button,
+    .cta-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .become-creator__hero,
+    .creator-hero {
+        padding: 60px 0;
+    }
+    
+    .become-creator__hero-features,
+    .hero-features {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .become-creator__feature-item,
+    .feature-item {
+        justify-content: center;
+    }
+    
+    .become-creator__cta-button,
+    .cta-btn {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Animation preferences */
+@media (prefers-reduced-motion: reduce) {
+    .become-creator__cta-button,
+    .become-creator__feature-icon,
+    .cta-btn,
+    .feature-item {
+        transition: none;
     }
 }

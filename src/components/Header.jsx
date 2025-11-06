@@ -61,111 +61,111 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
-        <div className="header-top">
+      <header className="header__root">
+        <div className="header__top">
           <div className="container">
             <div className="nav-brand">
-              <Link to="/" className="logo-link">
-                <img src={logo} alt="X-Models" className="logo" />
+              <Link to="/" className="header__logo-link">
+                <img src={logo} alt="X-Models" className="header__logo" />
               </Link>
             </div>
           </div>
         </div>
-        <nav className="navbar">
+        <nav className="header__navbar">
           <div className="container">
-            <div className="nav-content">
-              <div className="nav-menu">
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/models" className="nav-link">Models</Link>
-                <Link to="/subscriptions" className="nav-link">Subscriptions</Link>
-                <Link to="/messages" className="nav-link">Messages</Link>
+            <div className="header__nav-content">
+              <div className="header__nav-menu">
+                <Link to="/" className="header__nav-link">Home</Link>
+                <Link to="/models" className="header__nav-link">Models</Link>
+                <Link to="/subscriptions" className="header__nav-link">Subscriptions</Link>
+                <Link to="/messages" className="header__nav-link">Messages</Link>
               </div>
-              <div className="nav-actions">
+              <div className="header__nav-actions">
                 <button 
-                  className="btn-login"
+                  className="header__btn-login"
                   onClick={() => navigate('/login')}
                 >
                   Sign In
                 </button>
                 <button 
-                  className="btn-register"
+                  className="header__btn-register"
                   onClick={() => navigate('/register')}
                 >
                   Sign Up
                 </button>
                 <button 
-                  className="btn-dashboard" 
+                  className="header__btn-dashboard" 
                   onClick={() => navigate('/dashboard-creator')}
                 >
                   Creator Dashboard
                 </button>
                 <button 
-                  className="btn-dashboard" 
+                  className="header__btn-dashboard" 
                   onClick={() => navigate('/dashboard-viewer')}
                 >
                   Viewer Dashboard
                 </button>
               </div>
               <button 
-                className={`mobile-menu-button ${isMobileMenuOpen ? 'active' : ''}`}
+                className={`header__mobile-menu-button ${isMobileMenuOpen ? 'header__mobile-menu-button--active' : ''}`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span className="header__mobile-menu-button-bar"></span>
+                <span className="header__mobile-menu-button-bar"></span>
+                <span className="header__mobile-menu-button-bar"></span>
               </button>
             </div>
           </div>
         </nav>
-        <nav className={`navbar-sticky ${isScrolled ? 'visible' : ''}`}>
+        <nav className={`header__navbar--sticky ${isScrolled ? 'header__navbar--visible' : ''}`}>
           <div className="container">
-            <div className="nav-content">
-              <div className="nav-brand-sticky">
-                <Link to="/" className="logo-link">
-                  <img src={logo} alt="X-Models" className="logo-sticky" />
+            <div className="header__nav-content">
+              <div className="header__nav-brand-sticky">
+                <Link to="/" className="header__logo-link">
+                  <img src={logo} alt="X-Models" className="header__logo--sticky" />
                 </Link>
               </div>
-              <div className="nav-menu">
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/models" className="nav-link">Models</Link>
-                <Link to="/subscriptions" className="nav-link">Subscriptions</Link>
-                <Link to="/messages" className="nav-link">Messages</Link>
+              <div className="header__nav-menu">
+                <Link to="/" className="header__nav-link">Home</Link>
+                <Link to="/models" className="header__nav-link">Models</Link>
+                <Link to="/subscriptions" className="header__nav-link">Subscriptions</Link>
+                <Link to="/messages" className="header__nav-link">Messages</Link>
               </div>
-              <div className="nav-actions">
+              <div className="header__nav-actions">
                 <button 
-                  className="btn-login"
+                  className="header__btn-login"
                   onClick={() => navigate('/login')}
                 >
                   Sign In
                 </button>
                 <button 
-                  className="btn-register"
+                  className="header__btn-register"
                   onClick={() => navigate('/register')}
                 >
                   Sign Up
                 </button>
                 <button 
-                  className="btn-dashboard" 
+                  className="header__btn-dashboard" 
                   onClick={() => navigate('/dashboard-creator')}
                 >
                   Creator Dashboard
                 </button>
                 <button 
-                  className="btn-dashboard" 
+                  className="header__btn-dashboard" 
                   onClick={() => navigate('/dashboard-viewer')}
                 >
                   Viewer Dashboard
                 </button>
               </div>
               <button 
-                className={`mobile-menu-button ${isMobileMenuOpen ? 'active' : ''}`}
+                className={`header__mobile-menu-button ${isMobileMenuOpen ? 'header__mobile-menu-button--active' : ''}`}
                 onClick={toggleMobileMenu}
                 aria-label="Toggle mobile menu"
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span className="header__mobile-menu-button-bar"></span>
+                <span className="header__mobile-menu-button-bar"></span>
+                <span className="header__mobile-menu-button-bar"></span>
               </button>
             </div>
           </div>
@@ -173,19 +173,19 @@ const Header = () => {
 
         {/* Mobile Menu Overlay */}
         <div 
-          className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}
+          className={`header__mobile-menu-overlay ${isMobileMenuOpen ? 'header__mobile-menu-overlay--active' : ''}`}
           onClick={closeMobileMenu}
         />
 
         {/* Mobile Menu */}
-        <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <div className="mobile-menu-content">
-            <div className="mobile-menu-header">
-              <Link to="/" className="logo-link" onClick={closeMobileMenu}>
-                <img src={logo} alt="X-Models" className="mobile-logo" />
+        <div className={`header__mobile-menu ${isMobileMenuOpen ? 'header__mobile-menu--active' : ''}`}>
+          <div className="header__mobile-menu-content">
+            <div className="header__mobile-menu-header">
+              <Link to="/" className="header__logo-link" onClick={closeMobileMenu}>
+                <img src={logo} alt="X-Models" className="header__mobile-logo" />
               </Link>
               <button 
-                className="mobile-menu-close"
+                className="header__mobile-menu-close"
                 onClick={closeMobileMenu}
                 aria-label="Close mobile menu"
               >
@@ -193,33 +193,33 @@ const Header = () => {
               </button>
             </div>
             
-            <div className="mobile-nav-section">
-              <h3 className="mobile-nav-title">Navigation</h3>
-              <nav className="mobile-nav-links">
-                <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  <span className="mobile-nav-icon">🏠</span>
+            <div className="header__mobile-nav-section">
+              <h3 className="header__mobile-nav-title">Navigation</h3>
+              <nav className="header__mobile-nav-links">
+                <Link to="/" className="header__mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="header__mobile-nav-icon">🏠</span>
                   Home
                 </Link>
-                <Link to="/models" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  <span className="mobile-nav-icon">👥</span>
+                <Link to="/models" className="header__mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="header__mobile-nav-icon">👥</span>
                   Models
                 </Link>
-                <Link to="/subscriptions" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  <span className="mobile-nav-icon">⭐</span>
+                <Link to="/subscriptions" className="header__mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="header__mobile-nav-icon">⭐</span>
                   Subscriptions
                 </Link>
-                <Link to="/messages" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  <span className="mobile-nav-icon">💬</span>
+                <Link to="/messages" className="header__mobile-nav-link" onClick={closeMobileMenu}>
+                  <span className="header__mobile-nav-icon">💬</span>
                   Messages
                 </Link>
               </nav>
             </div>
 
-            <div className="mobile-auth-section">
-              <h3 className="mobile-nav-title">Account</h3>
-              <div className="mobile-nav-actions">
+            <div className="header__mobile-auth-section">
+              <h3 className="header__mobile-nav-title">Account</h3>
+              <div className="header__mobile-nav-actions">
                 <button 
-                  className="mobile-btn mobile-btn-login"
+                  className="header__mobile-btn header__mobile-btn--login"
                   onClick={() => {
                     navigate('/login');
                     closeMobileMenu();
@@ -228,7 +228,7 @@ const Header = () => {
                   Sign In
                 </button>
                 <button 
-                  className="mobile-btn mobile-btn-register"
+                  className="header__mobile-btn header__mobile-btn--register"
                   onClick={() => {
                     navigate('/register');
                     closeMobileMenu();
@@ -239,11 +239,11 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="mobile-dashboard-section">
-              <h3 className="mobile-nav-title">Dashboard</h3>
-              <div className="mobile-nav-actions">
+            <div className="header__mobile-dashboard-section">
+              <h3 className="header__mobile-nav-title">Dashboard</h3>
+              <div className="header__mobile-nav-actions">
                 <button 
-                  className="mobile-btn mobile-btn-dashboard creator" 
+                  className="header__mobile-btn header__mobile-btn--dashboard header__mobile-btn--creator" 
                   onClick={() => {
                     navigate('/dashboard-creator');
                     closeMobileMenu();
@@ -252,7 +252,7 @@ const Header = () => {
                   Creator Dashboard
                 </button>
                 <button 
-                  className="mobile-btn mobile-btn-dashboard viewer" 
+                  className="header__mobile-btn header__mobile-btn--dashboard header__mobile-btn--viewer" 
                   onClick={() => {
                     navigate('/dashboard-viewer');
                     closeMobileMenu();

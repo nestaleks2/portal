@@ -118,7 +118,7 @@ const Subscriptions = () => {
         </div>
 
         {/* Models Grid */}
-        <div className="models-grid">
+        <div className="models-grid__container">
           {sortedModels.map((model) => (
             <div key={model.id} className={`model-card ${model.status}`}>
               <div 

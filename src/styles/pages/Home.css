@@ -1,3 +1,28 @@
+/* ==========================================
+   HOME PAGE STYLES
+   Prefix: .home-page__
+   ========================================== */
+
+.home-page__main {
+    margin-top: 0;
+}
+
+.home-page__models-section {
+    padding: 24px 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: var(--bg-primary);
+}
+
+.home-page__section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+/* Legacy class names for backward compatibility */
 main {
     margin-top: 0;
 }
@@ -17,14 +42,19 @@ main {
     color: var(--text-primary);
 }
 
-/* Responsive adjustments */
+/* ==========================================
+   MEDIA QUERIES (All at bottom)
+   ========================================== */
+
 @media (max-width: 1280px) {
+    .home-page__main,
     main {
         padding-top: 30px;
     }
 }
 
 @media (max-width: 480px) {
+    .home-page__section-title,
     .models-section h2 {
         font-size: 2rem;
     }
